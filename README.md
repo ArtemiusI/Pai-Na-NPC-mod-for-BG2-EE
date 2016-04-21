@@ -1,1 +1,0 @@
-# Pai-Na-NPC-mod-for-BG2-EE
