@@ -1,0 +1,16 @@
+IF
+	!Dead("C0Paina")
+	!Dead("Viconia")
+	Global("C0PainaViconiaConflict","GLOBAL",1)
+THEN
+  RESPONSE #100
+	LeaveParty()
+    DialogInterrupt(FALSE)
+	EquipMostDamagingMelee()
+	ReallyForceSpell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
+	ReallyForceSpell(Myself,CLERIC_ARMOR_OF_FAITH)
+	ReallyForceSpell(Myself,CLERIC_AID)
+	ReallyForceSpell(Myself,CLERIC_RIGHTEOUS_MAGIC)
+	ForceSpell(Myself,CLERIC_FLAME_BLADE)
+	Attack("C0Paina")
+END

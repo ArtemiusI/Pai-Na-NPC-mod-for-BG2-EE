@@ -1,0 +1,52 @@
+IF
+	See([PC])
+	Global("C0PainaStart","LOCALS",0)
+THEN
+	RESPONSE #100
+	SetGlobal("C0PainaStart","LOCALS",1)
+	StartDialogueNoSet(Player1)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	!InParty(Myself)
+THEN
+	RESPONSE #100
+	ChangeAIScript("C0PaiNaX",CLASS)
+	ChangeAIScript("useitem",GENERAL)
+	ChangeAIScript("",DEFAULT)
+END
+
+IF
+	!Dead("C0Paina")
+	!Dead("Viconia")
+	Global("C0PainaViconiaConflict","GLOBAL",1)
+THEN
+  RESPONSE #100
+	LeaveParty()
+    DialogInterrupt(FALSE)
+	EquipMostDamagingMelee()
+	ReallyForceSpell(Myself,CLERIC_BARKSKIN)
+	ReallyForceSpell(Myself,CLERIC_ARMOR_OF_FAITH)
+	ReallyForceSpell(Myself,CLERIC_AID)
+	ReallyForceSpell(Myself,CLERIC_RIGHTEOUS_MAGIC)
+	ForceSpell(Myself,CLERIC_SHILLELAGH)
+	Attack("Viconia")
+END
+
+// Chapter 5
+
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+Global("Chapter","GLOBAL",5)
+Global("C0PaiNaUnderdark","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C0PaiNaUnderdark","GLOBAL",1)
+StartDialogueNoSet(Player1)
+END

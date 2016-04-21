@@ -1,0 +1,11 @@
+IF
+Global("StartEndBios","AR6200",1)
+InParty("C0Paina")
+Global("C0PainaBio","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C0PainaBio","GLOBAL",1)
+TextScreen("C0Pai01")
+SmallWait(1)
+Continue()
+END

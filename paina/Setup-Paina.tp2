@@ -1,0 +1,329 @@
+BACKUP ~Paina/backup~
+AUTHOR ~Artemius_I~
+AUTO_TRA ~Paina/translations/%s~
+LANGUAGE ~English~
+         ~English~
+         ~Paina/setup.tra~
+
+BEGIN ~Pai'Na NPC for BG:EE~
+
+COPY ~Paina/2da~ ~override~
+COPY ~Paina/audio~ ~override~
+COPY ~Paina/portraits~ ~override~
+COPY ~Paina/items~ ~override~
+COPY ~Paina/spells~ ~override~
+
+COMPILE	~Paina/Dialogue/BC0Paina.d~ 
+	~Paina/Dialogue/C0Paina.d~ 
+	~Paina/Dialogue/C0PaiEE.d~ 
+	~Paina/Dialogue/C0PainaJ.d~
+	~Paina/Dialogue/C0PainaP.d~
+	~Paina/Dialogue/BC0Pai25.d~ 
+	~Paina/Dialogue/C0Pai25.d~ 
+	~Paina/Dialogue/C0Pai25J.d~
+	~Paina/Dialogue/C0Pai25P.d~
+	~Paina/Scripts/C0Paina.baf~
+	
+EXTEND_BOTTOM ~Viconia.bcs~ ~Paina/scripts/c0pvicf.baf~
+
+INCLUDE ~Paina/fl#add_kit_ee.tpa~
+ADD_KIT ~C0HIVE~
+
+ // appended to CLASWEAP.2da
+ ~C0HIVE		1           1           1           1           1           1           1           1~
+
+ // appended column-wise to WEAPPROF.2da
+//11                                T   S           F   Q             S S
+//10                                W   C           L   U             W I
+//9                         B L S   O   I   W       A   A             O N
+//8                         A O H   H   M   A       I   R C   S       R G
+//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
+//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
+//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
+//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
+//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
+//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
+//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
+ ~C0HIVE	1 1 0 1 1 0 0 1 0 0 0 0 0 0 1 1 0 1 1 0 0 0 1 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+    
+ // appended to ABCLASRQ.2da
+ ~C0HIVE				0      0	0	0	0	0~
+
+ // appended to ABCLSMOD.2da
+ ~C0HIVE				0	0	0	0	0	0~
+
+ // appended to ABDCDSRQ.2da
+ ~C0HIVE                		0       17       0       0       17       17~
+
+ // appended to ABDCSCRQ.2da
+ ~C0HIVE                 	0       15       0       0       15		15~
+
+ // appended to ALIGNMNT.2da	LG	LN	LE	NG	TN	NE	CG	CN	CE 
+ ~C0HIVE                  		0	0	0	0	1	0	0	0	0~
+
+ // appended to DUALCLAS.2da
+ ~C0HIVE                  	0       0       0       0       0       0~
+
+ // path to your CLAB-style 2da file 
+ ~Paina/2da/C0HIVECL.2da~
+
+ // PC races and classes allowed to use this kit, from KITTABLE.2da
+ ~~
+
+ // usability flags, added to the end of the KITLIST.2da entry
+ ~0x08000000     11~
+
+ // HLA table to use; see LUABBR.2da
+ ~DR0~
+
+ // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
+ ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN4,2 POTN14,5 HAM07 SW1H27 STAF08~
+
+ // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
+  SAY ~hivemaster~
+  SAY ~Hivemaster~
+  SAY ~HIVEMASTER: The Hivemaster is a druid that focuses on fostering and protecting insects and arachnids, including giant versions thereof. Most commonly stylise themselves after either communal insects, such as ants or bees (hence the name), or predators like spiders, scorpions and dragonflies.
+
+Advantages:
+ - Immunity to poison.
+ - May cast Web and Spider Spawn as 2nd and 4th level priest spells respectively.
+ - May shapeshift into a huge spider once per day.
+ - Level 8: May shapeshift into a sword spider once per day.
+ - Level 14: May shapeshift into a wraith spider once per day.
+
+Disadvantages:
+ - May not shapeshift into default animal forms.~
+
+LAF fl#add_kit_ee
+  STR_VAR
+    kit_name = C0HIVE
+    clswpbon = ~0 0 3~
+	hpclass = ~HPPRS~
+    numwslot = 2
+END
+
+COPY ~Paina/spells/C0HIVE1.spl~ ~override~
+SAY NAME1 ~Shapeshift: Huge Spider~
+SAY NAME2 ~Shapeshift: Huge Spider~
+SAY UNIDENTIFIED_DESC ~Shapeshift: Huge Spider
+The hivemaster shapeshifts into a huge spider, gaining the following traits:
+
+Strength: 14
+Dexterity: 18
+
+Base Armor Class: 8
+Number of Attacks: 2
+Damage: 1d4 piercing, 1 poison damage per second for 1 round (save vs. poison at +2), hits as a +1 weapon~
+
+COPY ~Paina/spells/C0HIVE2.spl~ ~override~
+SAY NAME1 ~Shapeshift: Sword Spider~
+SAY NAME2 ~Shapeshift: Sword Spider~
+SAY UNIDENTIFIED_DESC ~Shapeshift: Sword Spider
+The hivemaster shapeshifts into a sword spider, gaining the following traits:
+
+Strength: 17
+Dexterity: 18
+
+Base Armor Class: 7
+Number of Attacks: 4
+Damage: 1d6 slashing, hits as a +3 weapon~
+
+COPY ~Paina/spells/C0HIVE3.spl~ ~override~
+SAY NAME1 ~Shapeshift: Wraith Spider~
+SAY NAME2 ~Shapeshift: Wraith Spider~
+SAY UNIDENTIFIED_DESC ~Shapeshift: Wraith Spider
+The hivemaster shapeshifts into a wraith spider, gaining the following traits:
+
+Strength: 19
+Dexterity: 18
+
+Base Armor Class: 6
+Number of Attacks: 3
+Damage: 1d8 piercing, drains one level and one point of strength for 24 seconds (save vs. poison at -2), hits as a +4 weapon
+Immunity to normal weapons
+Regenerates 1 hit point every 12 seconds~
+
+COPY ~Paina/spells/C0HIVE5.spl~ ~override~
+SAY UNIDENTIFIED_DESC ~Spider Spawn
+(Conjuration/Summoning)
+
+Level: 4
+Range: 120 ft.
+Duration: 6 rounds + 1 round/level
+Casting Time: 6
+Area of Effect: Special
+Saving Throw: None
+
+Upon casting this spell, the hivemaster must throw several spider eggs into the air while saying the final command word. The result is that the eggs morph into a fully grown spider that will remain under the hivemaster's telepathic control. The type of spider that appears depends upon the level of the hivemaster casting the spell.
+ 7th: giant spider.
+ 9th: phase spider.
+ 12th+: sword spider.
+When the spell is cast, there is a 20% chance that two spiders of the proper type will appear instead of just one. These spiders will remain under the hivemaster's control until they are slain, or until the spell duration expires.~
+
+COPY ~Paina/spells/C0SPIDER.spl~ ~override~
+SAY NAME1 ~Spiderling Swarm~
+SAY NAME2 ~Spiderling Swarm~
+
+COPY ~Paina/spells/C0PNAT.spl~ ~override~
+
+APPEND ~STATE.IDS~ // adds custom IsValidForPartyDialogue state
+  ~0x80101FEF CD_STATE_NOTVALID~
+  UNLESS ~CD_STATE_NOTVALID~
+
+COPY ~Paina/characters/sppain.cre~ ~override/sppain.cre~
+  SAY NAME1 ~Pai'Na~
+  SAY NAME2 ~Pai'Na~
+  WRITE_ASCII 0x248 ~C0Paina~ #8  //override script
+  WRITE_ASCII 0x280 ~C0Paina~ #32  //DV
+  WRITE_ASCII 0x2cc ~C0Paina~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0X34 ~PainaS~ #8   //small portrait
+  WRITE_ASCII 0x3c ~PainaM~ #8   //medium portrait
+  SAY BIO ~PAI'NA snarls when you ask about her past, telling you that it is none of your business and that it is enough to know that her half-drow heritage has made her an outcast from any form of civilized society. As a hivemaster druid, her duty of tending to the arachnids of the land is foremost, though she has decided to travel with you for now.~
+  SAY MORALE ~I refuse to die! My spiders still need me.~
+  SAY HAPPY ~I'm surprised by my lack of disappointment with you.~
+  SAY UNHAPPY_ANNOYED ~How pathetic.~
+  SAY UNHAPPY_SERIOUS ~My spiders are increasingly hungry for your blood. I suggest you change your course.~
+  SAY UNHAPPY_BREAKING_POINT ~May spiders feast on your innards! I am through with your company.~
+  SAY LEADER ~I prefer to act alone, but fine.~
+  SAY TIRED ~Stop. I am weary and my spiders require feeding.~
+  SAY BORED ~There are many things we would rather do with our time.~
+  SAY BATTLE_CRY1 ~My spiders will feast on your corpse!~
+  SAY BATTLE_CRY2 ~Feel the wrath of the divine eight-legged!~
+  SAY BATTLE_CRY3 ~Die, fool!~
+  SAY BATTLE_CRY4 ~~
+  SAY BATTLE_CRY5 ~~
+  SAY DAMAGE ~Uh!~
+  SAY DYING ~Agh... my children...~
+  SAY HURT ~No! I cannot... fall...~
+  SAY AREA_FOREST ~This would be a good place to build a sanctuary.~
+  SAY AREA_CITY ~The trampling steps of these louts sicken me. No doubt many of my charges fall to their boot each day.~
+  SAY AREA_DUNGEON ~My spiders approve of this dark place.~
+  SAY AREA_DAY ~I despise the light. Let's find shelter soon.~
+  SAY AREA_NIGHT ~The night belongs to my charges.~
+  SAY SELECT_COMMON1 ~What do you want?~
+  SAY SELECT_COMMON2 ~Hmm?~
+  SAY SELECT_COMMON3 ~What?!~
+  SAY SELECT_COMMON4 ~Leave me be.~
+  SAY SELECT_COMMON5 ~State your orders.~
+  SAY SELECT_COMMON6 ~Speak quickly.~
+  SAY SELECT_ACTION1 ~Fine.~
+  SAY SELECT_ACTION2 ~As you wish.~
+  SAY SELECT_ACTION3 ~Ah.~
+  SAY SELECT_ACTION4 ~Hmm.~
+  SAY SELECT_ACTION5 ~Must I?~
+  SAY SELECT_ACTION6 ~Bah!~
+  SAY SELECT_ACTION7 ~I shall.~
+  SAY SELECT_RARE1 ~Sometimes I wonder why I ever left my peaceful sanctuary.~
+  SAY SELECT_RARE2 ~One of my spiders is currently crawling down your neck... just kidding.~
+  SAY CRITICAL_HIT ~Hah! Taste my bite!~
+  SAY CRITICAL_MISS ~I have more chances!~
+  SAY TARGET_IMMUNE ~Impossible! Immune to my bite?~
+  SAY INVENTORY_FULL ~My charges and I are overburdened. Take some of this load away from me.~
+  SAY SPELL_DISRUPTED ~Curse you!~
+  SAY SET_A_TRAP ~~ []
+  SAY HIDDEN_IN_SHADOWS ~~ []
+  SAY PICKED_POCKET ~~ []
+  WRITE_ASCII 0x248 ~C0Paina~ #8
+  WRITE_ASCII 0x2cc ~C0Paina~  #8
+  WRITE_ASCII 0x280 ~C0Paina~  #32
+  WRITE_ASCII 0X34  ~PainaS~ #8
+  WRITE_ASCII 0x3c  ~PainaM~ #8
+  WRITE_SHORT 0x246 0x4000 + ~C0HIVE~ 
+	
+COPY ~Paina/characters/C0Pai25.cre~ ~override/C0Pai25.cre~
+  SAY NAME1 ~Pai'Na~
+  SAY NAME2 ~Pai'Na~
+  WRITE_ASCII 0x248 ~C0Paina~ #8  //override script
+  WRITE_ASCII 0x280 ~C0Paina~ #32  //DV
+  WRITE_ASCII 0x2cc ~C0Paina~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0X34 ~PainaS~ #8   //small portrait
+  WRITE_ASCII 0x3c ~PainaM~ #8   //medium portrait
+  SAY BIO ~PAI'NA snarls when you ask about her past, telling you that it is none of your business and that it is enough to know that her half-drow heritage has made her an outcast from any form of civilized society. As a hivemaster druid, her duty of tending to the arachnids of the land is foremost, though she has decided to travel with you for now.~
+  SAY MORALE ~I refuse to die! My spiders still need me.~
+  SAY HAPPY ~I'm surprised by my lack of disappointment with you.~
+  SAY UNHAPPY_ANNOYED ~How pathetic.~
+  SAY UNHAPPY_SERIOUS ~My spiders are increasingly hungry for your blood. I suggest you change your course.~
+  SAY UNHAPPY_BREAKING_POINT ~May spiders feast on your innards! I am through with your company.~
+  SAY LEADER ~I prefer to act alone, but fine.~
+  SAY TIRED ~Stop. I am weary and my spiders require feeding.~
+  SAY BORED ~There are many things we would rather do with our time.~
+  SAY BATTLE_CRY1 ~My spiders will feast on your corpse!~
+  SAY BATTLE_CRY2 ~Feel the wrath of the divine eight-legged!~
+  SAY BATTLE_CRY3 ~Die, fool!~
+  SAY BATTLE_CRY4 ~~
+  SAY BATTLE_CRY5 ~~
+  SAY DAMAGE ~Uh!~
+  SAY DYING ~Agh... my children...~
+  SAY HURT ~No! I cannot... fall...~
+  SAY AREA_FOREST ~This would be a good place to build a sanctuary.~
+  SAY AREA_CITY ~The trampling steps of these louts sicken me. No doubt many of my charges fall to their boot each day.~
+  SAY AREA_DUNGEON ~My spiders approve of this dark place.~
+  SAY AREA_DAY ~I despise the light. Let's find shelter soon.~
+  SAY AREA_NIGHT ~The night belongs to my charges.~
+  SAY SELECT_COMMON1 ~What do you want?~
+  SAY SELECT_COMMON2 ~Hmm?~
+  SAY SELECT_COMMON3 ~What?!~
+  SAY SELECT_COMMON4 ~Leave me be.~
+  SAY SELECT_COMMON5 ~State your orders.~
+  SAY SELECT_COMMON6 ~Speak quickly.~
+  SAY SELECT_ACTION1 ~Fine.~
+  SAY SELECT_ACTION2 ~As you wish.~
+  SAY SELECT_ACTION3 ~Ah.~
+  SAY SELECT_ACTION4 ~Hmm.~
+  SAY SELECT_ACTION5 ~Must I?~
+  SAY SELECT_ACTION6 ~Bah!~
+  SAY SELECT_RARE1 ~Sometimes I wonder why I ever left my peaceful sanctuary.~
+  SAY SELECT_RARE2 ~One of my spiders is currently crawling down your neck... just kidding.~
+  SAY CRITICAL_HIT ~Hah! Taste my bite!~
+  SAY CRITICAL_MISS ~I have more chances!~
+  SAY TARGET_IMMUNE ~Impossible! Immune to my bite?~
+  SAY INVENTORY_FULL ~My charges and I are overburdened. Take some of this load away from me.~
+  SAY SPELL_DISRUPTED ~Curse you!~
+  SAY SET_A_TRAP ~~ []
+  SAY HIDDEN_IN_SHADOWS ~~ []
+  SAY PICKED_POCKET ~~ []
+  WRITE_ASCII 0x248 ~C0Pai25~ #8
+  WRITE_ASCII 0x2cc ~C0Pai25~  #8
+  WRITE_ASCII 0x280 ~C0Paina~  #32
+  WRITE_ASCII 0X34  ~PainaS~ #8
+  WRITE_ASCII 0x3c  ~PainaM~ #8
+  WRITE_SHORT 0x246 0x4000 + ~C0HIVE~ 
+
+APPEND ~pdialog.2da~
+~C0Paina        C0PainaP             C0PainaJ            C0PainaD~
+UNLESS ~C0Paina~
+UNLESS ~25POST~
+
+APPEND ~pdialog.2da~
+~C0Paina        C0PainaP             C0PainaJ            C0PainaD             C0Pai25P             C0Pai25J             C0Pai25D       C0Pai25S~
+UNLESS ~C0Paina~
+IF ~25POST~
+
+APPEND ~interdia.2da~
+~C0Paina       BC0Paina~
+UNLESS ~C0Paina~
+UNLESS ~25FILE~
+
+APPEND ~interdia.2da~
+~C0Paina       BC0Paina       BC0Pai25~
+UNLESS ~C0Paina~
+IF ~25FILE~
+
+COPY ~Paina/Epilogue/C0Paizz.2da~ ~override/C0Pai01.2da~
+REPLACE ~99999~ ~After completing her journey with <CHARNAME>, Pai'Na returned to her sanctuary in Athkatla and discovered, to her horror, its destruction by the vermin extermination crew of Athkatla. Enraged by the sight of her former home burned down, the half-drow swore revenge against the civilized folk of the city, and soon rumors of many underground workers disappearing in the depths of the sewers spread throughout the city. Though the government initially dismissed such tales, the increasing dangers of the sewers and tombs forced them into action. Soldiers were sent down to the sewers of Athkatla only to discover that the entire underground system was taken over by spiders, webs and cocoons entangling the pipes and walls wherever they looked. As they cut through the webs in their way, a swarm of massive black spiders emerged from the darkness, and it is said that all of Athkatla heard the anguished screams from below. For many years to come, the underground of Athkatla became an uninhabitable home for arachnids where any man who trespassed never returned.~
+
+COPY ~Paina/items/c0pring.itm~ ~override/c0pring.itm~
+SAY NAME1 ~Widow's Kiss~
+SAY NAME2 ~Widow's Kiss~
+SAY DESC ~This obsidian ring is quite large and embedded with a large spider-shaped gemstone. It is Pai'Na's most (and only) treasured possession and she refuses to even remove it.
+
+STATISTICS:
+
+Combat abilities:
+- Once per day, may summon a swarm of 12 spiders under Pai'Na's control. The spiders are weak but have a powerful poison and can be extremely dangerous in a group.
+
+Equipped abilities:
+- Can memorize one extra divine spell of each level~
+
+OUTER_SET strref = RESOLVE_STR_REF (~Pai'Na snarls furiously and pulls away when you attempt to touch her ring.~)
+APPEND item_use.2da ~c0pring c0paina %strref% 1~
