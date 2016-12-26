@@ -23,9 +23,6 @@ IF ~~ DO ~ActionOverride("SPBene",ReallyForceSpell(Myself,SPIDER_CHANGE))
 ActionOverride("SPPhil",ReallyForceSpell(Myself,SPIDER_CHANGE))
 ActionOverride("SPSamar",ReallyForceSpell(Myself,SPIDER_CHANGE))
 ActionOverride("SPTredd",ReallyForceSpell(Myself,SPIDER_CHANGE))
-ChangeAIScript("C0PainaX",CLASS)
-ChangeAIScript("useitem",GENERAL)
-ChangeAIScript("DRUID10A",DEFAULT)
 Enemy()~ EXIT
 END
 

@@ -36,9 +36,8 @@ HIVEMASTER: The Hivemaster is a druid that focuses on fostering and protecting i
 
 Advantages:
  - Immunity to poison.
- - May cast Web once per day.
+ - May cast Web and Spider Swarm as 2nd and 4th level priest spells respectively.
  - May shapeshift into a huge spider once per day.
- - Level 5: May cast Spider Spawn once per day.
  - Level 8: May shapeshift into a sword spider once per day.
  - Level 14: May shapeshift into a wraith spider once per day.
 
@@ -96,10 +95,21 @@ A: Unfortunately, not yet. This mod overrides Pai'Na's dialogue and character, s
 -----------------------
 
 Author: Artemius_I
-Portrait: http://lorrain.deviantart.com/art/Feriel-94342211
+Portrait: Ubisoft
+Original Portrait: http://lorrain.deviantart.com/art/Feriel-94342211
 -----------------------
  Change Log
 -----------------------
 
+v1.0 - initial release
+ - Added Poison to hivemaster kit
+ - Added inventory paperdolls to spider shapeshifts
+ - Added extensive ToB content
+ - Added friendship track to SoA and ToB
+ - Added mini-quest
+
+v0.6.
+ - Hivemaster kit reworked slightly - innates moved to priest spells, shapeshifts buffed
+ - Dialogues tweaked
 v0.5.beta
  - initial release of mod for playtesting

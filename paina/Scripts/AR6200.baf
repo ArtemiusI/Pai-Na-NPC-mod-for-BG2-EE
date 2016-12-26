@@ -1,11 +1,46 @@
+// Evil epilogue, personal quest not complete
+
 IF
 Global("StartEndBios","AR6200",1)
 InParty("C0Paina")
 Global("C0PainaBio","GLOBAL",0)
+!Global("C0PaiNaBebilithVenom","GLOBAL",2)
 THEN
 RESPONSE #100
 SetGlobal("C0PainaBio","GLOBAL",1)
 TextScreen("C0Pai01")
+SmallWait(1)
+Continue()
+END
+
+// Good epilogue, performed ritual
+
+IF
+Global("StartEndBios","AR6200",1)
+InParty("C0Paina")
+Global("C0PainaBio","GLOBAL",0)
+Global("C0PaiNaBebilithVenom","GLOBAL",2)
+Global("C0PVENOM","GLOBAL",4)
+THEN
+RESPONSE #100
+SetGlobal("C0PainaBio","GLOBAL",1)
+TextScreen("C0Pai02")
+SmallWait(1)
+Continue()
+END
+
+// Good epilogue, did not perform ritual
+
+IF
+Global("StartEndBios","AR6200",1)
+InParty("C0Paina")
+Global("C0PainaBio","GLOBAL",0)
+Global("C0PaiNaBebilithVenom","GLOBAL",2)
+!Global("C0PVENOM","GLOBAL",4)
+THEN
+RESPONSE #100
+SetGlobal("C0PainaBio","GLOBAL",1)
+TextScreen("C0Pai03")
 SmallWait(1)
 Continue()
 END

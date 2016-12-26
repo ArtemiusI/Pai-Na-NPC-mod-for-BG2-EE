@@ -18,6 +18,25 @@ DO ~SetGlobal("C0PainaAerie1","GLOBAL",1)~
 EXIT
 
 CHAIN
+IF ~InParty("C0Paina")
+See("C0Paina")
+!StateCheck("Aerie",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaAerie2","GLOBAL",0)~ THEN BAERIE C0PainaAerie1
+~P-Pai'Na... you lived under the Athkatlan cemetary, didn't you? Wasn't it... lonely?~
+DO ~SetGlobal("C0PainaAerie2","GLOBAL",1)~
+== BC0PAINA ~Why would you care?~
+== BAERIE ~I... I just wanted to know. When I was still being treated like a... an exhibition, back at the circus, it was like torture... but it wasn't the pain. It was the feeling of being completely alone, with no one that treated me like a- a person.~
+== BC0PAINA ~*pfft* I have no notion of loneliness. My spiders, my kin, keep me company always.~
+== BAERIE ~I- I guess that's pretty nice, even if it's a little creepy. I'm almost envious that you can keep your friends so close no matter where you go.~
+== BC0PAINA ~What is your point, wingless elf?~
+== BAERIE ~I just thought we could be... be friends, since we're already companions under <CHARNAME>'s leadership.~
+== BC0PAINA ~And why would I possibly desire such a thing?~
+== BAERIE ~Y-you don't have to agree right now. Maybe you can get used to the idea. I-I'm always willing to talk, if you ever need an ear.~
+== BC0PAINA ~Hmph. I shall... keep that in mind.~
+EXIT
+
+CHAIN
 IF ~InParty("Anomen")
 See("Anomen")
 !StateCheck("Anomen",CD_STATE_NOTVALID)
@@ -29,6 +48,23 @@ DO ~SetGlobal("C0PainaAnomen1","GLOBAL",1)~
 == BC0PAINA ~Should I feel flattered? The prejudice is dripping from every word you spew. Were it any more obvious, you would be spitting it with every breath.~
 == BANOMEN ~Your insults have no impact on me. I would find more meaning from conversing with a beast.~
 == BC0PAINA ~Yes, I suppose you would be too hard-headed to take in anything I say.~
+EXIT
+
+CHAIN
+IF ~InParty("C0Paina")
+See("C0Paina")
+!StateCheck("Anomen",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaAnomen2","GLOBAL",0)~ THEN BANOMEN C0PainaAnomen2
+~I believe your primitive lifestyle is a cause of your lack of faith and proper education, Pai'Na. For your own good, I suggest you discover both while you have time.~
+DO ~SetGlobal("C0PainaAnomen2","GLOBAL",1)~
+== BC0PAINA ~*snort* I'm willing to bet I have more knowledge than you, at any rate.~
+== BANOMEN ~Do you now? And what knowledge do you claim to have, then?~
+== BC0PAINA ~I am a master of poisons and herbology. I've read books from my master on Tethyrian history, tedious as they were, and... I make my own clothes. You know how to shout very loudly and swing a lump of metal on a stick. What else, hmm?~
+== BANOMEN ~Knights of the Order are tested as much in mind as in body. I have had professional tutors on the various faiths of the realms, their portfolios, and all else.~
+== BC0PAINA ~Oh, yes. You tin-heads are able to bring faith into something as simple as a *chamber pot*. How very helpful in this life that we spend killing people.~
+== BANOMEN ~I... how dare... you are trying to avoid the topic with petty insults!~
+== BC0PAINA ~Well, it's good that you can figure that out, at least.~
 EXIT
 
 CHAIN 
@@ -44,6 +80,40 @@ DO ~SetGlobal("C0PainaCernd1","GLOBAL",1)~
 == BC0PAINA ~If you must know, I had a tutor. She taught me how to take care of arachnids and use magic. That's it.~
 == BCERND ~Perhaps if you are interested, I would take you to my grove one day. You may like exchanging experiences with my fellows.~
 == BC0PAINA ~I think I'll decline. I have no interest in socializing with other druids.~
+EXIT
+
+CHAIN 
+IF ~InParty("C0Paina")
+See("C0Paina")
+!StateCheck("Cernd",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaCernd2","GLOBAL",0)~ THEN BCERND C0PainaCernd2
+~Perhaps other druids may scold you for specializing in protecting and nurturing the arachnid commune, Pai'Na, but I will not. Nature has need of those of your ability as much as any other.~
+DO ~SetGlobal("C0PainaCernd2","GLOBAL",1)~
+== BC0PAINA ~I don't care.~
+== BCERND ~I did not imply that you should. You serve Nature regardless of your own goals. That is all that matters.~
+== BC0PAINA ~Well, in that case, you won't mind if I don't bother to hear any more of this. You remind me too much of the witch.~
+== BC0PAINA ~"You are a servant of Nature. You serve a role in the cycle, insignificant though it may seem, blah, blah." I do what I see fit.~
+== BCERND ~Fair enough. Your loyalty to your role is plain to see, though you may deny it.~
+EXIT
+
+CHAIN 
+IF ~InParty("Cernd")
+See("Cernd")
+!StateCheck("Cernd",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaCernd3","GLOBAL",0)~ THEN BC0PAINA C0PainaCernd3
+~Hngh...~
+DO ~SetGlobal("C0PainaCernd3","GLOBAL",1)~
+== BCERND ~Is there something you need, Pai'Na? You have been looking at me for some time, with that very frustrated expression. Are you not well? No, you are an accomplished healer. Surely you would have tended to yourself already. What ails you?~
+== BC0PAINA ~Grr... no. No, there is nothing.~
+== BCERND ~I see.~
+== BC0PAINA ~...~
+== BCERND ~Hmm. Incidentally, I have heard that pine sap once heated makes for a strong protector against water when applied to other objects.~
+== BC0PAINA ~Yes. I- *cough* I knew that. I didn't ask.~
+== BCERND ~Certainly. After all, you have been tutored well enough to survive on your own for many years. Perhaps the knowledge merely slipped your mind last night, when you were seeking a way to shield your spiders from the rain.~
+== BC0PAINA ~I would have figured it out- I mean, remembered it, eventually.~
+== BCERND ~I am sure you would have. However, I am always here to help.~
 EXIT
 
 CHAIN
@@ -63,6 +133,34 @@ EXIT
 CHAIN
 IF ~InParty("C0Paina")
 See("C0Paina")
+Gender("Edwin",MALE)
+!StateCheck("Edwin",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaEdwin2","GLOBAL",0)~ THEN BEDWIN C0PainaEdwin2
+~(Hmm... doubtful that she will be willing, but I have precious little time to spare, so I have little choice to ask.) You there.~
+DO ~SetGlobal("C0PainaEdwin2","GLOBAL",1)~
+== BC0PAINA ~...~
+== BEDWIN ~Ahem. Do you hear me, half-drow?~
+== BC0PAINA ~...Hmmm...~
+== BEDWIN ~Listen to me, you damn spider-monkey!~
+== BC0PAINA ~Gnh... what?!~
+== BEDWIN ~(Now, what was it I was to say... ah, yes!) I must ask something of you, druid.~
+== BC0PAINA ~I was in communication with my charges. You had better have distracted me for good reason, wizard.~
+== BEDWIN ~Oh, yes, very good reason... I must have a sample of your spider venom and spider silk. They are valuable spell components that I am in short supply of.~
+== BC0PAINA ~And why, pray tell, would I give any to you?~
+== BEDWIN ~This is for the good of the group! Are you so moronic that you cannot see the value in my ability to cast my magic? Without my full power, this ragtag band will surely perish within the hour!~
+== BC0PAINA ~Rrgh... and?~
+== BEDWIN ~And... er, because I am asking politely?~
+== BC0PAINA ~...~
+== BEDWIN ~...~
+== BC0PAINA ~...~
+== BEDWIN ~...well?~
+== BC0PAINA ~Fine. It's amusing to watch you beg. Take it and get out of my sight... reprobate.~
+EXIT
+
+CHAIN
+IF ~InParty("C0Paina")
+See("C0Paina")
 !StateCheck("HaerDalis",CD_STATE_NOTVALID)
 !StateCheck("C0Paina",CD_STATE_NOTVALID)
 Global("C0PainaHaerDalis1","GLOBAL",0)~ THEN BHAERDA C0PainaHaerDalis1
@@ -71,6 +169,23 @@ DO ~SetGlobal("C0PainaHaerDalis1","GLOBAL",1)~
 == BC0PAINA ~There is no 'tale', bard, and if you are trying to amuse me with your rhyming nonsense, I am not interested.~
 == BHAERDA ~If a poem does not interest you, then perhaps a song will?~
 == BC0PAINA ~No. Leave me be.~
+EXIT
+
+CHAIN
+IF ~InParty("C0Paina")
+See("C0Paina")
+!StateCheck("HaerDalis",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaHaerDalis2","GLOBAL",0)~ THEN BHAERDA C0PainaHaerDalis2
+~So, my dark widow...~
+DO ~SetGlobal("C0PainaHaerDalis2","GLOBAL",1)~
+== BC0PAINA ~Stop. Shut. Up.~
+== BHAERDA ~My, such barbs that you spit towards this sparrow! No songs of poetry for you this time, I swear to you.~
+== BC0PAINA ~Grr... what do you want?~
+== BHAERDA ~I had only a question, born out of simple curiosity - which, I wonder, is more venomous... your spiders, or your sharp tongue and wit?~
+== BC0PAINA ~If you're that curious, I could always demonstrate... not that you'd live to appreciate it. Well then, bard, whose poison would you care to try first... my spiders', or mine?~
+== BHAERDA ~I fear your poison is a touch too strong for my tastes, though if 'twere that which lies upon your tongue and lips that I were to taste...~
+== BC0PAINA ~GET OUT OF MY SIGHT!~
 EXIT
 
 CHAIN
@@ -92,6 +207,26 @@ DO ~SetGlobal("C0PainaImoen1","GLOBAL",1)~
 EXIT
 
 CHAIN
+IF ~InParty("Imoen2")
+See("Imoen2")
+!StateCheck("Imoen2",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaImoen2","GLOBAL",0)~ THEN BC0PAINA C0PainaImoen2
+~You annoy me.~
+DO ~SetGlobal("C0PainaImoen2","GLOBAL",1)~
+== BIMOEN2 ~Huh?~
+== BC0PAINA ~I said you annoy me. I suggest you cease before you suffer an agonizing death.~
+== BIMOEN2 ~I haven't done anything to you, Pai! Why are you being mean?~
+== BC0PAINA ~I know you put the beetles in my bedroll.~
+== BIMOEN2 ~...Oh.~
+== BC0PAINA ~Yes. "Oh."~
+== BIMOEN2 ~Ha, ahaha... I, uh, thought you'd like it, with the spiders and all... it's like a surprise midnight snack, right?~
+== BIMOEN2 ~Er... my mistake?~
+== BC0PAINA ~Maybe I'll do the same to you tonight and see how *you* like it.~
+== BIMOEN2 ~*sigh* I guess I had this coming.~
+EXIT
+
+CHAIN
 IF ~InParty("C0Paina")
 See("C0Paina")
 !StateCheck("Jaheira",CD_STATE_NOTVALID)
@@ -105,6 +240,23 @@ DO ~SetGlobal("C0PainaJaheira1","GLOBAL",1)~
 == BJAHEIR ~Suit yourself. Hopefully this temperament of yours may fade when you mature a little.~
 EXIT
 
+CHAIN
+IF ~InParty("C0Paina")
+See("C0Paina")
+!StateCheck("Jaheira",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaJaheira1","GLOBAL",0)
+GlobalGT("Chapter","GLOBAL",2)~ THEN BJAHEIR C0PainaJaheira2
+~Is it true, Pai'Na? You were acquainted with Bodhi before you met <CHARNAME>?~
+DO ~SetGlobal("C0PainaJaheira1","GLOBAL",1)~
+== BC0PAINA ~Maybe. You wouldn't me wrong to say we were next-door neighbors, so to speak. Don't ask me what I know of her, though. I know nothing.~
+== BJAHEIR ~I had no such intention, but... why did you not give us such important information when we met? It would have been helpful to <CHARNAME>.~
+== BC0PAINA ~I was not aware it was relevant in anyway. Besides, telling you I was familiar with a vampire hardly makes a good first impression.~
+== BJAHEIR ~True, but even when you knew everything about <CHARNAME>'s goals, you kept silent. How can we trust you any more now than if you had been honest from the beginning?~
+== BC0PAINA ~I'm not around to wax exposition like some people. I'm here because <CHARNAME> knows I'm good at what I do. Why <PRO_HESHE> keeps a talkative nag like you around is the real question.~
+== BJAHEIR ~So be it, you seem content with tossing immature insults at me for bringing this up. We will talk no further of this.~
+EXIT
+
 CHAIN 
 IF ~InParty("C0Paina")
 See("C0Paina")
@@ -113,7 +265,7 @@ See("C0Paina")
 Global("C0PainaJan1","GLOBAL",0)~ THEN BJAN C0PainaJan1
 ~So you like spiders, do you, lass? Surprisingly, so do I!~
 DO ~SetGlobal("C0PainaJan1","GLOBAL",1)~
-== BC0PAINA ~(dryly) I am glad to know it.~
+== BC0PAINA ~*snort* I am glad to know it.~
 == BJAN ~Yes, they make excellent guardians for my turnip gardens against the pests that make a business of ruining the family trade. Very helpful! Sadly, the local spider population vanished soon before I left the family to work. I don't suppose you'd be willing to hire a few of your charges?~
 == BC0PAINA ~My children are not for 'hire', mad gnome, especially not for the menial task of... guarding vegetables.~
 == BJAN ~Nothing will change your mind? Not even one of my finest turnips? Maybe a Flasher?~
@@ -136,6 +288,21 @@ DO ~SetGlobal("C0PainaKeldorn1","GLOBAL",1)~
 == BC0PAINA ~Which, likely, will be never.~ 
 EXIT
 
+CHAIN 
+IF ~InParty("C0Paina")
+See("C0Paina")
+!StateCheck("Keldorn",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaKeldorn2","GLOBAL",0)~ THEN BKELDOR C0PainaKeldorn2
+~You have dedication, Pai'Na. Have you ever considered using it for greater causes?~
+DO ~SetGlobal("C0PainaKeldorn2","GLOBAL",1)~
+== BC0PAINA ~Such as screaming the name of some bodiless entity while I cut down my enemies? Pass.~
+== BKELDOR ~Do you claim to hold no allegiance to any deity? I had thought that druids worshipped the gods of nature, just as any other servant of faith.~
+== BC0PAINA ~Hmph. I have no interest in such matters. Perhaps some great power grants me my magic, but I will not kneel and mumble words in their name.~
+== BC0PAINA ~The witch that taught me worshipped Silvanus. Always with the 'Oakfather this, Oakfather that', I got tired of it. I am loyal only to myself and my spider-kin.~
+== BKELDOR ~So you say, but I pray that age will grant you greater wisdom.~
+EXIT
+
 CHAIN
 IF ~InParty("Korgan")
 See("Korgan")
@@ -150,6 +317,21 @@ DO ~SetGlobal("C0PainaKorgan1","GLOBAL",1)~
 == BC0PAINA ~I correct myself- my spiders cannot eat what clearly doesn't exist. I suppose they will have to settle for the rest of you instead.~
 EXIT
 
+CHAIN
+IF ~InParty("Korgan")
+See("Korgan")
+!StateCheck("Korgan",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaKorgan2","GLOBAL",0)~ THEN BC0PAINA C0PainaKorgan2
+~*sniff* Rank, musty, and doubtlessly filled with maggots... no doubt my children would love to make a nest of that tangle you call a beard, dwarf.~
+DO ~SetGlobal("C0PainaKorgan2","GLOBAL",1)~
+== BKORGAN ~They'd be welcome ter try an' move in, but I warn ye, drowling, ye'll be mournin' yer precious children by day's end.~
+== BC0PAINA ~*Half*-drow. Don't get it wrong again, knee-high.~
+== BKORGAN ~*belch* Ah, go hang yerself on yer spider-silk, gray-skin.~
+== BC0PAINA ~Sleep lightly, stump. You won't like it when my spiders build a nice, silky home in that beard. Perhaps you'll feel them crawling in your mouth as you make that revolting snore of yours. Skitter skitter...~
+== BKORGAN ~Quit that, ye skinny gray wench! Ar, I'll be doin' the watch fer tonight, <CHARNAME>. Can't have this half-drow spider-kisser catchin' me unawares.~
+EXIT
+
 CHAIN 
 IF ~InParty("Mazzy")
 See("Mazzy")
@@ -162,6 +344,21 @@ DO ~SetGlobal("C0PainaMazzy1","GLOBAL",1)~
 == BC0PAINA ~I didn't mean to compliment you, but my children rather like it. They would like make a nest of it.~
 == BMAZZY ~A *nest*?! In my hair? (shudder) I... am flattered? But I think 'twould be unsafe for them to live atop my head.~
 == BC0PAINA ~How disappointing.~
+EXIT
+
+CHAIN 
+IF ~InParty("Mazzy")
+See("Mazzy")
+!StateCheck("Mazzy",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaMazzy1","GLOBAL",1)~ THEN BC0PAINA C0PainaMazzy2
+~Are you *certain* you will not reconsider, halfling?~
+DO ~SetGlobal("C0PainaMazzy1","GLOBAL",2)~
+== BMAZZY ~No, I am quite certain that I do not want spiders living in my hair, Pai'Na! Though I mean no offense to you, of course.~
+== BC0PAINA ~Such a shame. I had thought you would appreciate spiders. Why, your head even looks like one.~
+== BMAZZY ~You think... my hair looks like a spider?~
+== BC0PAINA ~Mayhap a few too many legs, but my kin certainly can see the appeal.~
+== BMAZZY ~Enough! *shudder* Please, enough... you are surely going to give me nightmares.~
 EXIT
 
 CHAIN
@@ -183,6 +380,28 @@ DO ~SetGlobal("C0PainaMinsc1","GLOBAL",1)~
 == BC0PAINA ~(sigh) Very well... I will try to rein back my children a little, just so you will leave me be.~
 EXIT
 
+CHAIN
+IF ~InParty("C0Paina")
+See("C0Paina")
+!StateCheck("Minsc",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaMinsc2","GLOBAL",0)~ THEN BMINSC C0PainaMinsc2
+~Boo? Boo, where are you?~
+DO ~SetGlobal("C0PainaMinsc2","GLOBAL",1)~
+== BC0PAINA ~*sigh* Great. What's wrong with the great buffoon now?~
+== BMINSC ~Pai'Na! This is terrible! Boo has... he has vanished!~
+== BC0PAINA ~Vanished? What, into a puff of smoke? And what has this got to do with me?~
+== BMINSC ~Well, Boo was saying to Minsc, one day, that... mm...~
+== BC0PAINA ~Grr... what?~
+== BMINSC ~Boo was... he was always telling Minsc how scared he was that Pai'Na's spider friends would eat him. Minsc assured Boo they wouldn't do such a thing, but...~
+== BC0PAINA ~Oh, of all the ridiculous things I've ever... don't you even try to pin this on my- what's that in my hair? Gah, it's moving!~
+== BMINSC ~Oh! Boo! He is on your head, Pai'Na!~
+== BC0PAINA ~Wh-what?! G-get it out of my hair at once before I loose a tarantula on it!~
+== BMINSC ~Come back here, you! Naughty Boo! You do not hide in our friends' hair and scare Minsc like this!~
+== BC0PAINA ~Grr... little bugger must have gotten into my pack then ran from my spiders into my hair! They should have devoured it whole! If I find a single hamster dropping, I swear...~
+== BMINSC ~Pai'Na? Boo, I think you have made her angry...~
+EXIT
+
 CHAIN 
 IF ~InParty("C0Paina")
 See("C0Paina")
@@ -198,7 +417,24 @@ DO ~SetGlobal("C0PainaNalia1","GLOBAL",1)~
 == BC0PAINA ~(hiss) The only pests and vermin are those who would dare to harm my children!~
 == BNALIA ~You really care for spiders, don't you? I'm not sure whether to respect or be horrified by that.~
 == BC0PAINA ~Nobles. (snort) The worst of civilization.~
-EXIT 
+EXIT
+
+CHAIN 
+IF ~InParty("C0Paina")
+See("C0Paina")
+!StateCheck("Nalia",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaNalia2","GLOBAL",0)~ THEN BNALIA C0PainaNalia2
+~You're powerful, intelligent and a good healer, Pai'Na. Why are you content to seclude yourself, rather than using your skills to do good?~
+DO ~SetGlobal("C0PainaNalia2","GLOBAL",1)~
+== BC0PAINA ~Why do I have to? I'm happy to leave others alone if they leave me alone. Being a do-gooder only brings trouble.~
+== BNALIA ~That's a strange thing to say, since you seem happy travelling with us at present time.~
+== BC0PAINA ~Hmph. We all need some fresh air once in a while. Besides, it's <CHARNAME> who chooses what we do. I'm just here to throw some magic around and gorge my children on the bodies we leave behind.~
+== BNALIA ~And you're perfectly satisfied with that? You're not the slightest bit interested the good we do?~
+== BC0PAINA ~I only think about what a bother this all is. I must risk my kin for the sake of people who would trample them without a second thought. Is that fair to me?~
+== BNALIA ~Then why do you stay? It's not as though you need us, and I'm not sure I want help from someone like you!~
+== BC0PAINA ~You're not exactly in a position to make decisions, 'Nalia'. Take your concerns to <CHARNAME> if you must, otherwise do your part, and leave me to mine.~
+EXIT
 
 CHAIN 
 IF ~InParty("Valygar")
@@ -206,7 +442,7 @@ See("Valygar")
 !StateCheck("Valygar",CD_STATE_NOTVALID)
 !StateCheck("C0Paina",CD_STATE_NOTVALID)
 Global("C0PainaValygar1","GLOBAL",0)~ THEN BC0PAINA C0PainaValygar1
-~I think I recognize you, ranger. You have been to the forest of Tethyr before.~
+~I think I recognize you, ranger. You have been to the forest of Tethir before.~
 DO ~SetGlobal("C0PainaValygar1","GLOBAL",1)~
 == BVALYGA ~I've been there many times. What's your point?~
 == BC0PAINA ~You passed the village of the forest witch.~
@@ -214,6 +450,23 @@ DO ~SetGlobal("C0PainaValygar1","GLOBAL",1)~
 == BC0PAINA ~The witch said many things about you.~
 == BVALYGA ~Why are you bringing this up, Pai'Na?~
 == BC0PAINA ~She said she respects the care you have for nature. I expect you to keep it up, for your own sake.~
+EXIT
+
+CHAIN 
+IF ~InParty("Valygar")
+See("Valygar")
+!StateCheck("Valygar",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaValygar1","GLOBAL",1)~ THEN BVALYGA C0PainaValygar2
+~I had no idea the forest witch had any children.~
+DO ~SetGlobal("C0PainaValygar1","GLOBAL",2)~
+== BC0PAINA ~I was no spawn of hers, ranger. She merely found me in the arms of my dying mother and raised me.~
+== BVALYGA ~My condolences for your loss. But I don't think I've ever seen you there.~
+== BC0PAINA ~Your eyes clearly aren't as sharp as they seem. I spent much of my time indoors in my studies... or more precisely, the witch kept me inside. You never saw fit to approach the hut?~
+== BVALYGA ~No. I suspected the witch was a mage, not a druid, and I wanted nothing to do with her. We barely ever spoke.~
+== BC0PAINA ~What a shame. It would have been nice to have someone other than the old crone around once in a while.~
+== BVALYGA ~I'm not exactly prime company for small talk.~
+== BC0PAINA ~Who said anything about talking? I had... other ideas to amuse myself.~
 EXIT
 
 CHAIN
@@ -265,6 +518,39 @@ EXIT
 CHAIN
 IF ~InParty("C0Paina")
 See("C0Paina")
+!StateCheck("Viconia",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaViconia2","GLOBAL",0)~ THEN BVICONI C0PainaViconia2
+~Keep your wretched spiders away from me, mongrel.~
+DO ~SetGlobal("C0PainaViconia2","GLOBAL",1)~
+== BC0PAINA ~What's wrong, oh-so-mighty drow priestess? Frightened of your own goddess's creatures?~
+== BVICONI ~I am no worshipper of Lolth, as you well know.~
+== BC0PAINA ~Somehow that makes me hate you slightly less. But only slightly.~
+== BVICONI ~You may bear hatred for me, but I view it as little more than that of a simple rothe. You are less than nothing to a true drow. Perhaps if you lived among them, you would realize that.~
+== BC0PAINA ~The only time I will walk among the drow is when my spiders are feasting upon their corpses.~
+== BVICONI ~Keep to your delusions, Pai'Na. Hopefully they will be the death of you one day.~
+EXIT
+
+CHAIN
+IF ~InParty("C0Paina")
+See("C0Paina")
+!StateCheck("Viconia",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaViconia3","GLOBAL",0)~ THEN BVICONI C0PainaViconia3
+~You are pitiful, so very pitiful, Pai'Na. Viciously denying both sides of your heritage, accepted by neither. Why, all your posturing seems to be little more than overcompensation.~
+DO ~SetGlobal("C0PainaViconia3","GLOBAL",1)~
+== BC0PAINA ~If you are trying to anger me, you are very, very close to succeeding, bitch.~
+== BVICONI ~Oh, indeed I am. You are most amusing when angered, elg'caress. 'Tis almost like watching an umber hulk struggle against its cage.~
+== BC0PAINA ~*spit*~
+== BVICONI ~Gnh! How... predictably savage of you to do that.~
+== BC0PAINA ~Ah, finally, a crack in that insufferably smug exterior of yours. The look suits you.~
+== BVICONI ~Do not try to deceive me, Pai'Na. Do you believe I am so ignorant to not notice the poison? I have no fear of your tricks, for I am well aware of them.~
+== BC0PAINA ~Some of my tricks. You'll get complacent, and you won't live to regret it.~
+EXIT
+
+CHAIN
+IF ~InParty("C0Paina")
+See("C0Paina")
 !StateCheck("Yoshimo",CD_STATE_NOTVALID)
 !StateCheck("C0Paina",CD_STATE_NOTVALID)
 CombatCounter(0)
@@ -277,6 +563,24 @@ DO ~SetGlobal("C0PainaYoshimo1","GLOBAL",1)~
 == BC0PAINA ~What is your intent, thief? Why would you care if I smiled or not?~
 == BYOSHIM ~Because there is no sight more depressing than a miserable lady.~
 == BC0PAINA ~I could show you a few, if you don't mind suffering for the experience.~
+EXIT
+
+CHAIN
+IF ~InParty("Yoshimo")
+See("Yoshimo")
+!StateCheck("Yoshimo",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+Global("C0PainaYoshimo2","GLOBAL",0)~ THEN BC0PAINA C0PainaYoshimo2
+~What- what is this supposed to be?!~
+DO ~SetGlobal("C0PainaYoshimo2","GLOBAL",1)~
+== BYOSHIM ~It is amber, my friend, an ancient stone formed from the sap of trees. I purchsed this trinket from a trader in my travels, and only recently found it still in my pack. I thought it might amuse you.~
+== BC0PAINA ~There's a spider inside. It's not real, is it? It had better not be real!~
+== BYOSHIM ~Of course it is, Pai'Na. The trader claims that the spider is as old as the stone itself, trapped within it eons ago.~
+== BC0PAINA ~You're telling me this rock is *thousands* of years old?! As is the spider inside? Oh, this is... grr, I won't say it...~
+== BYOSHIM ~No thanks are necessary, my friend. I simply thought you would like it.~
+== BC0PAINA ~Nngh, it is... tolerable. I will let you off this time.~
 EXIT
 
 // PC talks
@@ -570,4 +874,332 @@ IF ~~ p5.8
 SAY ~Yes, let's. I'm getting tired of this conversation.~
 IF ~~ EXIT
 END
+END
+
+CHAIN IF ~See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+Global("C0PaiNaPCTalk","GLOBAL",5)~ THEN BC0Paina p6
+~Did I hear this correctly, <CHARNAME>? You visited the Cloakwood?~
+DO ~SetGlobal("C0PaiNaPCTalk","GLOBAL",6)~
+END
+++ ~I did, in fact.~ + p6.1
+++ ~I might have. What of it?~ + p6.1
+
+APPEND BC0PAINA
+
+IF ~~ p6.0
+SAY ~You are only too ignorant to see the beauty of them. Fine, I will find out for myself one day.~
+IF ~~ EXIT
+END
+
+IF ~~ p6.1
+SAY ~I hear there are spiders within the Cloakwood. Creatures of all different colors, great, magnificent ones, with eyes larger than your head. Is all of that true?~
+++ ~I don't know if they were that big or colorful, but yes, there were a few like that.~ + p6.2
+++ ~Have you never been to the Cloakwood?~ + p6.3
+++ ~Don't ask me about the spiders. I have enough nightmares of them. *shudder*~ + p6.0
+END
+
+IF ~~ p6.2
+SAY ~I- I wish to... *ahem* I mean to say, you will tell me everything you experienced, from their appearance to the sounds they made.~
+= ~If possible, perhaps even the length of their legs, their eating habits, the strength and color of their silk...~
+++ ~Whoa! Slow down, I can't tell you all of that.~ + p6.3
+++ ~You don't mind the fact that I killed them all?~ + p6.4
+++ ~Well, let's see. Shall I tell you about the fat lady that commanded them?~ + p6.5
+END
+
+IF ~~ p6.3
+SAY ~Tell me everything you know. Everything. If I cannot be there, at least I can imagine it.~
+++ ~Alright, alright.~ + p6.6
+++ ~No thanks. Spiders creep me out.~ + p6.0
+END
+
+IF ~~ p6.4
+SAY ~You... grr... you were... ignorant. Hopefully you have been enlightened by my presence.~
+IF ~~ + p6.3
+END
+
+IF ~~ p6.5
+SAY ~The spiders were commanded by another being? How curious...~
+IF ~~ + p6.3
+END
+
+IF ~~ p6.6
+SAY ~Good. I will hold you to that. Perhaps you will tell me at night, before we rest.~
+IF ~~ EXIT
+END
+END
+
+CHAIN IF ~See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+Global("C0PaiNaPCTalk","GLOBAL",6)~ THEN BC0Paina p7
+~Do you ever think of your parents, <CHARNAME>? After all, you were not raised by your kin, just as I wasn't. I can... sympathize.~
+DO ~SetGlobal("C0PaiNaPCTalk","GLOBAL",7)~
+END
+++ ~You, showing sympathy? That's rare.~ + p7.1
+++ ~I don't. Gorion was as good a father as any.~ + p7.2
+++ ~Sometimes, but I don't know much about them.~ + p7.3
+
+APPEND BC0PAINA
+
+IF ~~ p7.1
+SAY ~I am not wholly without emotion, <CHARNAME>. My heart is only half-black, after all. *snort*~
+IF ~~ + p7.3
+END
+
+IF ~~ p7.2
+SAY ~Baffling. My relations with my master was not nearly as close. Perhaps this 'Gorion' of yours was an exceptional case.~
+IF ~~ + p7.3
+END
+
+IF ~~ p7.3
+SAY ~Did they ever leave you a keepsake, I wonder? I was told my human mother carried this drow-crafted ring to the surface along with me.~
+++ ~I don't recall ever getting something like that, no.~ + p7.4
+++ ~Why would your mother have a drow magical item?~ + p7.5
+++ ~Gorion's letter to me said something about my mother... but I lost it when I was captured.~ + p7.4
+END
+
+IF ~~ p7.4
+SAY ~Pity. I find this trinket gives me some comfort. Even if it were not imbued with powerful magic, I would still keep it.~
+= ~I am not the sentimental type, but... it is good to think that she had the strength to save me from the Underdark.~
+IF ~~ + p7.5
+END
+
+IF ~~ p7.5
+SAY ~This ring likely had much to do with her escape, no doubt... she must have stolen it, whether from my... *spit* father or some priestess.~
+= ~It is ironic, I suppose. I loathe the drow for tainting my existence with their blood, yet my most precious item is of drow creation. But I... don't care.~
+++ ~Your mother took it, so it belonged to her, not the drow.~ + p7.6
+++ ~So you respect your mother, then?~ + p7.7
+END
+
+IF ~~ p7.6
+SAY ~I know that. I am not a fool or a child, <CHARNAME>.~
+IF ~~ + p7.8
+END
+
+IF ~~ p7.7
+SAY ~More than respect. I... admire her. Perhaps if she had lived to raise me, I may have even loved her. She had every right to despise me, a product of the drow that once owned her, but she cared enough to save me for whatever dismal fate awaited me.~
+= ~And she did more than care... she had the strength to escape. I would not be here if she did not have her love and strength. How could I not admire that?~
+++ ~You're right. I would too.~ + p7.9
+++ ~We've talked enough. Let's move on.~ + p7.8
+END
+
+IF ~~ p7.8
+SAY ~This bores me anyway. Don't we have some errand or other thing to deal with?~
+IF ~~ EXIT
+END
+
+IF ~~ p7.9
+SAY ~Perhaps you're not such a fool after all, <CHARNAME>.~
+IF ~~ EXIT
+END
+END
+
+CHAIN IF ~See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+Global("C0PaiNaPCTalk","GLOBAL",7)~ THEN BC0Paina p8
+~I've always seen city-dwellers as boorish, lazy buffoons who don't think twice about the ground they step on, but you're not so bad, <CHARNAME>.~
+DO ~SetGlobal("C0PaiNaPCTalk","GLOBAL",8)~
+END
++ ~Class(Player1,DRUID_ALL)~ + ~I am a druid too, you know.~ + p8.1
++ ~Class(Player1,RANGER_ALL)~ + ~I am a ranger, you know.~ + p8.1
+++ ~Well, that's good to hear.~ + p8.2
+++ ~Have I changed your thoughts on 'city-dwellers' as a whole, though?~ + p8.3
+
+APPEND BC0PAINA
+
+IF ~~ p8.1
+SAY ~Perhaps, but you seemed too comfortable around the louts of the city for me to trust you when we met. That has changed. A little.~
+IF ~~ + p8.2
+END
+
+IF ~~ p8.2
+SAY ~I've almost started to find your company tolerable.~
+++ ~Aaaaand there goes the mood again.~ + p8.4
+++ ~Can't you make two full sentences without tossing a barb my way?~ + p8.5
+END
+
+IF ~~ p8.3
+SAY ~No.~
+++ ~Fair enough.~ + p8.2
+++ ~That's a shame.~ + p8.2
+END
+
+IF ~~ p8.4
+SAY ~I would hardly be myself if I acted otherwise.~
+IF ~~ EXIT
+END
+
+IF ~~ p8.5
+SAY ~No. Maybe... hmm, no. Besides, I just gave you a compliment, ingrate.~
+++ ~Case and point.~ + p8.4
+++ ~THAT was supposed to be a compliment?~ + p8.6
+++ ~Thank you.~ + p8.7
+END
+
+IF ~~ p8.6
+SAY ~Take it as it is. You should know I rarely give them.~
+IF ~~ EXIT
+END
+
+IF ~~ p8.7
+SAY ~D-don't thank me. I don't even know how to respond to that.~
+++ ~How about 'you're welcome'?~ + p8.8
+++ ~Don't. It's fine.~ + p8.9
+END
+
+IF ~~ p8.8
+SAY ~...no.~
+IF ~~ EXIT
+END
+
+IF ~~ p8.9
+SAY ~Pfeh.~
+IF ~~ EXIT
+END
+END
+
+CHAIN IF ~See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+Global("C0PaiNaPCTalk","GLOBAL",8) RealGlobalTimerExpired("C0PaiNaTalkTimer","GLOBAL")~ THEN C0PAINAJ p9
+~I will end you if you tell this to anyone, but I admit... I am having difficulty comprehending everything that has happened. The mage... Irenicus, he took your soul from you? Is that true?~
+DO ~SetGlobal("C0PaiNaPCTalk","GLOBAL",9)~
+END
+++ ~That's what he said.~ + p9.1
+++ ~Why does this interest you, Pai'Na?~ + p9.2
+++ ~I have no interest in discussing my soul with you, Pai'Na.~ + p9.0
+
+APPEND C0PAINAJ
+
+IF ~~ p9.0
+SAY ~Fine. I can't say I expected otherwise.~
+IF ~~ EXIT
+END
+
+IF ~~ p9.1
+SAY ~What is that like, I wonder? Do you feel something lacking inside? Or do you feel exactly the same, and you are simply going on that madman's word?~
+++ ~He may have been lying, but I don't think so. My Bhaalspawn powers are gone.~ + p9.3
+++ ~What reason would he have to lie? It's not like he expects me to live.~ + p9.4
+++ ~I'm not interested in talking about my soul, not until I get it back.~ + p9.0
+END
+
+IF ~~ p9.2
+SAY ~Look around you, <CHARNAME>. Do you see any other distractions around?~
+IF ~~ + p9.1
+END
+
+IF ~~ p9.3
+SAY ~It is a simple matter to seal off minor magical talents, from what my master taught me. Still... I suppose there is no reason for him to lie.~
+IF ~~ + p9.5
+END
+
+IF ~~ p9.4
+SAY ~True enough. Although he may have been intending for you to die in despair. I admit, his cruelty is... something else entirely. It's almost as though he has no empathy for the living at all.~
+IF ~~ + p9.5
+END
+
+IF ~~ p9.5
+SAY ~I have torn things from within others before, but those were... physical. And very messy. I could not even think of how one goes about tearing a soul from a body. And you're somehow still alive for the experience. This is fascinating.~
+++ ~That's disgusting, Pai'Na.~ + p9.6
+++ ~You think you'd like to learn how to do it?~ + p9.7
+++ ~Stop talking. Now.~ + p9.0
+END
+
+IF ~~ p9.6
+SAY ~*snort* Trust me, you don't want to know the things my master told me. Besides, I assumed you'd prefer to think of anything besides our current situation.~
+IF ~~ + p9.8
+END
+
+IF ~~ p9.7
+SAY ~Hmm. No, I don't think so. If it doesn't kill whoever I do it to, and they come seeking me for vengeance, what's the point? I'm not as desperate as Irenicus.~
+IF ~~ + p9.8
+END
+
+IF ~~ p9.8
+SAY ~Regardless, for your own good, <CHARNAME>, try not to drop dead. You've only started to become interesting, after all. It'd be such a shame to lose you.~
+++ ~Why, Pai'Na, are you showing concern for me?~ + p9.9
+++ ~Gee, thanks.~ + p9.10
+END
+
+IF ~~ p9.9
+SAY ~Don't be absurd. I expect you, who dragged me along for this mess, to be the one to get me out of it. Can't do that if you're spider-food, can you?~
+= ~I can't imagine your soulless husk would even make a nourishing meal.~
+IF ~~ + p9.10
+END
+
+IF ~~ p9.10
+SAY ~Either way, it's in both our interests to survive, so I will... do my best, I suppose, to ensure that you make it. But do not expect me to smile while doing so.~
+++ ~Thank you. Really.~ + p9.11
+++ ~I still think you care.~ + p9.12
+END
+
+IF ~~ p9.11
+SAY ~Oh... shut up.~
+IF ~~ EXIT
+END
+
+IF ~~ p9.12
+SAY ~I...~
+= ~I don't. End of story.~
+IF ~~ EXIT
+END
+END
+
+CHAIN IF ~See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+Global("C0PaiNaPCTalk","GLOBAL",10)
+AreaType(OUTDOOR)
+!TimeOfDay(NIGHT)
+RealGlobalTimerExpired("C0PaiNaTalkTimer","GLOBAL")~ THEN C0PAINAJ p10
+~I cannot believe I am saying this, but I have never been so glad to see the sky again.~
+DO ~SetGlobal("C0PaiNaPCTalk","GLOBAL",10)~
+= ~Bah! Just as I had gotten used to the light, our experience trudging through the underground has brought back its glare. This is entirely your fault, <CHARNAME>.~
+END
+++ ~Whatever you say.~ + p12.1
+++ ~Didn't you enjoy any of that?~ + p12.2
+++ ~Oh, shut up already.~ + p12.0
+
+APPEND C0PAINAJ
+
+IF ~~ p12.0
+SAY ~Hmph.~
+IF ~~ EXIT
+END
+
+IF ~~ p12.1
+SAY ~Oh, grow some backbone, <CHARNAME>. Or did Irenicus drain that out of you as well?~
+IF ~~ + p12.3
+END
+
+IF ~~ p12.2
+SAY ~Perhaps you are not aware of this. Perhaps I have never mentioned it, and neglected to mention it all this time, but I will say it now, so that this knowledge will seep into your empty mind.~
+= ~I loathe drow. Each and every one of them.~
+IF ~~ + p12.3
+END
+
+IF ~~ p12.3
+SAY ~*sigh* I am... fatigued. Fatigued and frustrated. Perhaps I have even gone too far this time, though I will not apologize.~
+= ~My heritage shaped my life, and in ways I am not wholly fond of. I will admit that. Though I spit venom at the drow often, I... do not think of them most of the time. It usually results in wishing to poison the nearest living being.~
+= ~Travelling through the Underdark was... horrible. The drow are every bit what I imagined of them, and worse in many ways.~
+++ ~You're not so different from them, to be frank.~ + p12.4
+++ ~I'm sorry.~ + p12.5
+++ ~Well, we're out of there now.~ + p12.6
+END
+
+IF ~~ p12.4
+SAY ~What?! You... y-you...~
+= ~You... *sigh* you are not wrong. Perhaps that is what frustrates me the most.~
+= ~Damn you, <CHARNAME>. Why do you always have to be right? Just... shut up. Shut up and do not speak to me for now.~
+IF ~~ EXIT
+END
+
+IF ~~ p12.5
+SAY ~Why? Do you truly care, <CHARNAME>? Or are you just trying to shut me up?~
+IF ~~ + p12.6
+END
+
+IF ~~ p12.6
+SAY ~Hmph, whatever. If you are trying to lighten my mood, I... appreciate it, for what it is worth. This must be the reason I'm still willing to stay around.~
+IF ~~ EXIT
+END
+
 END

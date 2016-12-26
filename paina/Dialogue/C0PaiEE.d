@@ -15,6 +15,21 @@ DO ~SetGlobal("C0PainaDorn1","GLOBAL",1)~
 == BC0PAINA ~They should. Even you must sleep eventually. My spiders do not.~
 EXIT
 
+CHAIN
+IF ~InParty("C0Paina")
+See("C0Paina")
+!StateCheck("Dorn",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaDorn2","GLOBAL",0)~ THEN BDORN C0PainaDorn2
+~I cannot deny that your beasts have an... efficiency for overwhelming the weaklings we face, half-drow. But you waste what potential they have by cowering in your measly cocoon for your entire life?~
+DO ~SetGlobal("C0PainaDorn2","GLOBAL",1)~
+== BC0PAINA ~And what would you have me do instead, hmm? Take over the city?~
+== BDORN ~Surely such a thing would be more purposeful than the wasteful life you lead.~
+== BC0PAINA ~Pfft. I'm neither interested nor moronic enough to try such a thing.~
+== BDORN ~That is only another way of saying you lack the stomach for it. Such an act would impress me, perhaps change my opinion of your bugs.~
+== BC0PAINA ~You are so pitifully short-sighted, Dorn. My spiders control more than what those pig-like eyes of yours can see. If you can realize that, Dorn, then perhaps you might impress *me*.~
+EXIT
+
 // ToB
 
 CHAIN
@@ -45,6 +60,23 @@ DO ~SetGlobal("C0PainaHexxat1","GLOBAL",1)~
 == BC0PAINA ~It was the most convenient place for me to do my duty. Many of my charges were born there, and human fools rarely trespass.~
 == BHEXXAT ~<CHARNAME> did.~
 == BC0PAINA ~That's true. But there is always an exception.~
+EXIT
+
+CHAIN
+IF ~InParty("C0Paina")
+See("C0Paina")
+!StateCheck("Hexxat",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaHexxat1","GLOBAL",0)~ THEN BHEXXAT C0PainaHexxat1
+~You're not as opposed to me as other druids I've met. Does my existence not go against the natural order?~
+DO ~SetGlobal("C0PainaHexxat1","GLOBAL",1)~
+== BC0PAINA ~Perhaps it does. My master would have thrown a fit if she met you.~
+== BHEXXAT ~But you won't?~
+== BC0PAINA ~I don't necessarily care for... what you are. But you're a survivor, like me. I don't see any reason to fear you.~
+== BHEXXAT ~Then you're the first. Most others dread I might drain their blood without warning if my hunger takes me.~
+== BC0PAINA ~Oh, make no mistake - my spiders are always watching. If you try anything, I *will* end you. But I don't doubt you're wise enough to realize that.~
+== BHEXXAT ~Fear not, Pai'Na. I have no such intention.~
+== BC0PAINA ~So you say. But I never trusted Bodhi, neither do I trust you... vampire.~
 EXIT
 
 // ToB
@@ -83,6 +115,26 @@ DO ~SetGlobal("C0PainaNeera1","GLOBAL",1)~
 == BNEERA ~Oh. Well, uh, I guess I'll just stay away from them.~
 EXIT
 
+CHAIN
+IF ~InParty("Neera")
+See("Neera")
+!StateCheck("Neera",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaNeera2","GLOBAL",0)~ THEN BNEERA C0PainaNeera2
+~Hey... Pai'Na. Could you come take a look at this?~
+DO ~SetGlobal("C0PainaNeera2","GLOBAL",1)~
+== BC0PAINA ~I have no interest in your wizardly tools, wild mage. Keep your distance.~
+== BNEERA ~Uh, that's fair enough, but this isn't mine. In fact, it might be yours. Hard to say, the way it is now.~
+== BC0PAINA ~Y-you...! what did you do to it?!~
+== BNEERA ~I have no idea, honest! It was just supposed to be a spell to heat the cooking pot, and I guess this little guy just happened to be crawling on the side.~
+== BC0PAINA ~That's a female, you nitwit!~
+== BNEERA ~Right. You'd know best. But anyway, I didn't mean to turn its legs into... uh, whatever they became. They kind of look like little fins...~
+== BC0PAINA ~Reverse this right this instant, before I tear your guts out through your throat and feed them to my brood!~
+== BNEERA ~Eek! Okay, okay, just calm down and I'll, uh... how about this! 'Hex-o presto kazoo-ey'!~
+== BNEERA ~...Huh, what d'ya know. That actually worked. Whew, guess my guts get to stay inside of me tonight...~
+== BC0PAINA ~Grr...~
+EXIT
+
 // ToB 
 
 CHAIN
@@ -101,7 +153,7 @@ DO ~SetGlobal("C0PainaNeeraToB1","GLOBAL",1)~
 == BNEERA25 ~Uh, nothing.~
 == BC0PAI25 ~I don't believe you. What are you hiding in your hand?~
 == BNEERA25 ~It's nothing! Really!~
-== BC0PAI25 ~I warn you, mage, if that was a spider you burned, I will make sure you pay for it.~
+== BC0PAI25 ~I warn you, mage, if that was a spider you burned, I will make sure you pay dearly for it.~
 EXIT
 
 // Rasaad
@@ -121,14 +173,37 @@ DO ~SetGlobal("C0PainaRasaad1","GLOBAL",1)~
 == BRASAAD ~Er, as you wish, my friend.~
 EXIT
 
-/* CHAIN
+CHAIN
+IF ~InParty("Rasaad")
+See("Rasaad")
+!StateCheck("Rasaad",CD_STATE_NOTVALID)
+!StateCheck("C0Paina",CD_STATE_NOTVALID)
+Global("C0PainaRasaad2","GLOBAL",0)
+LevelGT("Rasaad",10)~ THEN BC0PAINA C0PainaRasaad2
+~Interesting. You have developed a resistance to toxins not unlike that of a hivemaster, monk. What is your secret?~
+DO ~SetGlobal("C0PainaRasaad2","GLOBAL",1)~
+== BRASAAD ~There is no secret, my friend. This is but a stage of a monk's training. I may banish poisons that enter my bloodstream through force of will.~
+== BC0PAINA ~Hmm, fascinating. I demand that you demonstrate it to me.~
+== BRASAAD ~Are you suggesting that I allow you to poison me, Pai'Na?~
+== BC0PAINA ~Oh, don't panic. I have antidotes for... most poisons in my collection. Besides, if your immunity is as absolute as you claim, this should be like drinking water to you. I must see this technique of yours for myself.~
+== BRASAAD ~Hmm. I would never have backed off from such a bold challenge in my youth. I accept.~
+== BC0PAINA ~Good. Make no mistake, monk - I will create a poison even *you* won't be able to neutralize.~
+== BRASAAD ~I... look forward to the challenge.~
+EXIT
+
+CHAIN
 IF ~InParty("Rasaad")
 See("Rasaad")
 !StateCheck("Rasaad",CD_STATE_NOTVALID)
 !StateCheck("C0Paina",CD_STATE_NOTVALID)
 Global("C0PainaToBRasaad1","GLOBAL",0)~ THEN BRASAA25 C0PainaToBRasaad1
-~~
+~What drives you to remain with us, Pai'Na? Forgive me for my doubts, but you owe little to <CHARNAME>, yet you would risk life and limb regardless.~
 DO ~SetGlobal("C0PainaToBRasaad1","GLOBAL",1)~
-== BC0PAI25 ~~
-EXIT */
+== BC0PAI25 ~More than my own limbs, monk. What business is it of yours?~
+== BRASAA25 ~I have come to know you better, despite your... reclusiveness. I see a woman whose heart is in the right place, despite her sour exterior. Am I wrong to presume so?~
+== BC0PAI25 ~Does it matter? If you are confident I'm not going anywhere, then surely my reasons mean nothing.~
+== BRASAA25 ~I would like to know. You have gained my respect for your dedication, but there is still so little I know of you. I thought, perhaps, we could transition from respect to friendship.~
+== BC0PAI25 ~Hmph. You presume too much, bald one... but I remain because I find your presence... tolerable. I could do worse for company. Is that enough for you?~
+== BRASAA25 ~It is. Thank you for giving your thoughts.~
+EXIT
 

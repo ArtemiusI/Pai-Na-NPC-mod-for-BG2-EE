@@ -12,7 +12,7 @@ IF
 	!InParty(Myself)
 THEN
 	RESPONSE #100
-	ChangeAIScript("C0PaiNaX",CLASS)
+	ChangeAIScript("paina",CLASS)
 	ChangeAIScript("useitem",GENERAL)
 	ChangeAIScript("",DEFAULT)
 END
@@ -34,6 +34,50 @@ THEN
 	Attack("Viconia")
 END
 
+// Kitthix
+
+IF
+InParty(Myself)
+See(Player1)
+LevelGT(Myself,13)
+PartyHasItem("misc3e")
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+Global("C0PaiNaKitthix","GLOBAL",2)
+THEN
+RESPONSE #100
+SetGlobal("C0PaiNaKitthix","GLOBAL",3)
+SetGlobalTimer("C0PaiNaKitthixUpgrade","GLOBAL",THREE_DAYS)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+LevelGT(Myself,13)
+PartyHasItem("misc3e")
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+Global("C0PaiNaKitthix","GLOBAL",3)
+GlobalTimerExpired("C0PaiNaKitthixUpgrade","GLOBAL")
+THEN
+RESPONSE #100
+SetGlobal("C0PaiNaKitthix","GLOBAL",4)
+StartDialogueNoSet(Player1)
+END
+
+IF
+Global("C0PaiNaKitthix","GLOBAL",5)
+PartyHasItem("misc3e")
+THEN
+RESPONSE #100
+CreateVisualEffectObject("spcrtwpn",Myself)
+DestroyItem("misc3e")
+Wait(2)
+SetGlobal("C0PaiNaKitthix","GLOBAL",6)
+GiveItemCreate("c0pkitt",Myself,1,0,0)
+StartDialogueNoSet(Player1)
+END
+
 // Chapter 5
 
 IF
@@ -48,5 +92,152 @@ Global("C0PaiNaUnderdark","GLOBAL",0)
 THEN
 RESPONSE #100
 SetGlobal("C0PaiNaUnderdark","GLOBAL",1)
+StartDialogueNoSet(Player1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+Global("Chapter","GLOBAL",5)
+AreaCheck("AR2200")
+Global("C0PaiNaUstNatha","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C0PaiNaUstNatha","GLOBAL",1)
+StartDialogueNoSet(Player1)
+END
+
+// Underdark Exit
+
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+Global("Chapter","GLOBAL",6)
+AreaCheck("AR2500")
+Global("C0PaiNaWitch","GLOBAL",0)
+THEN
+RESPONSE #100
+Wait(5)
+SetGlobal("C0PaiNaWitch","GLOBAL",1)
+StartDialogueNoSet(Player1)
+END
+
+// Has Bebilith Extract
+
+IF
+	Global("C0PaiNaBebilithVenom","GLOBAL",0)
+	PartyHasItem("c0ppotn")
+THEN
+RESPONSE #100
+	SetGlobal("C0PaiNaBebilithVenom","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+// Drank Bebilith Extract
+
+IF
+	Global("C0PVENOM","GLOBAL",1)
+	!Dead("C0Paina")
+THEN
+RESPONSE #100
+	Wait(2)
+	SetGlobal("C0PVENOM","GLOBAL",3)
+	StartDialogueNoSet(Player1)
+END
+
+IF
+	Global("C0PVENOM","GLOBAL",2)
+	!LevelGT("C0Paina",14)
+	!Dead("C0Paina")
+THEN
+RESPONSE #100
+	DisplayStringHead(Myself,~Nngh...! Curse... my weakness...~)
+	Wait(1)
+	CreateVisualEffectObject("SPFLESHS",Myself)
+	LeaveParty()
+	Kill(Myself)
+	SetGlobal("C0PVENOM","GLOBAL",4)
+END
+
+IF
+	Global("C0PVENOM","GLOBAL",2)
+	LevelGT("C0Paina",14)
+	!Dead("C0Paina")
+THEN
+RESPONSE #100
+	Wait(2)
+	SetGlobal("C0PVENOM","GLOBAL",3)
+	StartDialogueNoSet(Player1)
+END
+
+// last 2 friendship talks
+
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+GlobalGT("AsylumPlot","GLOBAL",40)
+Global("C0PaiNaPCTalk","GLOBAL",7)
+THEN
+RESPONSE #100
+RealSetGlobalTimer("C0PaiNaTalkTimer","GLOBAL",FIFTEEN_MINUTES)
+SetGlobal("C0PaiNaPCTalk","GLOBAL",8)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+RealGlobalTimerExpired("C0PaiNaTalkTimer","GLOBAL")
+CombatCounter(0)
+!See([ENEMY])
+GlobalGT("AsylumPlot","GLOBAL",40)
+Global("C0PaiNaPCTalk","GLOBAL",8)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+GlobalGT("Chapter","GLOBAL",6)
+Global("C0PaiNaPCTalk","GLOBAL",9)
+THEN
+RESPONSE #100
+RealSetGlobalTimer("C0PaiNaTalkTimer","GLOBAL",FIVE_MINUTES)
+SetGlobal("C0PaiNaPCTalk","GLOBAL",10)
+END
+
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+RealGlobalTimerExpired("C0PaiNaTalkTimer","GLOBAL")
+CombatCounter(0)
+AreaType(OUTDOOR)
+!TimeOfDay(NIGHT)
+!See([ENEMY])
+GlobalGT("Chapter","GLOBAL",6)
+Global("C0PaiNaPCTalk","GLOBAL",10)
+THEN
+RESPONSE #100
 StartDialogueNoSet(Player1)
 END

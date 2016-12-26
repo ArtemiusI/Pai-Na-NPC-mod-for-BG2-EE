@@ -1,0 +1,9 @@
+IF
+	Global("C0PainaWitchSpawn","AR2600",0)
+	InParty("C0Paina")
+THEN
+  RESPONSE #100
+	SetGlobal("C0PainaWitchSpawn","AR2600",1)
+	CreateCreature("C0PWitch",[4329.2199],S)
+	Continue()
+END

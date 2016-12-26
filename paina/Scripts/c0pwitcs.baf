@@ -1,0 +1,15 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutsceneId("C0PWitch")
+	CreateVisualEffectObject("SPFLESHS",Myself)
+	SmallWait(5)
+	CreateVisualEffectObject("SPPOLYMP",Myself)
+	CreateVisualEffectObject("POLYBACK",Myself)
+	SmallWait(5)
+	DestroyItem("c0phive3")
+	Wait(2)
+	SetName(~Forest Witch~)
+	StartDialogueNoSet(Player1)
+END

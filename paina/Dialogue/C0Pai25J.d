@@ -18,7 +18,7 @@ CHAIN SARVOLO C0PainaVoloBio1
 EXTERN SARVOLO 9
 
 I_C_T FINSOL01 27 C0PainaSolarFriend1
-== C0Pai25J IF ~InParty("C0Paina") InMyArea("C0Paina") !StateCheck("C0Paina",CD_STATE_NOTVALID)~ THEN ~So, your destiny is about to come to an end. Choose what you desire the most, and damn those who try and convince you otherwise. It is a rare chance for destiny to be in your own hands.~
+== C0Pai25J IF ~InParty("C0Paina") InMyArea("C0Paina") !StateCheck("C0Paina",CD_STATE_NOTVALID)~ THEN ~So, your journey is about to come to an end. Choose what you desire the most, and damn those who try and convince you otherwise. It is a rare chance for destiny to be in your own hands.~
 END
 
 I_C_T AMMERC02 0 C0PainaAMMERC020

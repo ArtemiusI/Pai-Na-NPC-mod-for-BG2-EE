@@ -9,7 +9,7 @@ END
 IF ~~ b1.1
 SAY ~I had been hoping to build a new sanctuary near the elven city since we parted ways. Unfortunately, now that you have pulled me from the forests to... wherever this is, I shall have to abandon that plan.~
 = ~If you still have need of me, I suppose I could do worse for company. Shall we be on our way, <CHARNAME>?~
-++ ~Join me, Pai'Na.~ + b1.2
+++ ~Yes. Join me.~ + b1.2
 ++ ~Wait here for now.~ + b1.3
 END
 

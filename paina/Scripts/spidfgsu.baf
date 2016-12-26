@@ -1,0 +1,12 @@
+IF
+    Range(Player1,20)
+    NumTimesTalkedTo(0)
+    See(Player1)
+    Global("C0PaiNaKitthix","GLOBAL",0)
+    IsValidForPartyDialog("C0PaiNa")
+THEN
+    RESPONSE #100
+        FaceObject("C0PaiNa")
+        SetGlobal("C0PaiNaKitthix","GLOBAL",1)
+        ActionOverride("C0Paina",StartDialogueNoSet(Player1))
+END
