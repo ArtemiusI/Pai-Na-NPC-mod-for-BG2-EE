@@ -404,8 +404,29 @@ ACTION_IF FILE_EXISTS_IN_GAME ~u!spbane.itm~ AND FILE_EXISTS_IN_GAME ~bc0paina.d
 THEN BEGIN
   PRINT ~Adding compatibility for Unfinished Business~
 COMPILE ~Paina/dialogue/crossmod/ub.d~
+EXTEND_TOP ~AR0334.bcs~ ~Paina/dialogue/crossmod/ub.baf~
   COPY_EXISTING ~sppain.cre~ ~override/sppain.cre~
   WRITE_ASCII 0x2cc ~sppain~ #8   //pre-joining dialogue file
+  
+  COPY_EXISTING ~sw2h06.itm~ ~override~
+  SAY DESC ~This sword was originally forged by the dwarves of the Orothiar tribe in Cloakwood. They created the blade to help foster goodwill between them and the Grand Dukes of Baldur's Gate. Wielded by the Grand Dukes for about a century, the sword was eventually lost, ironically in a fight against ettercaps and spiders.
+  
+How the blade found its way into (and was subsequently broken by) the clumsy hands of Athkatla's sewer cleaners is unknown, but fortunately its pieces were recovered and reforged by the dwarven smith Cromwell. As a tool for both fighting mages and vermin extermination, Spider's Bane will serve its current wielder well.
+
+STATISTICS:
+
+Equipped abilities:
+ - Protects the wielder from any magics that adversely affect movement, such as Hold and Web.
+
+THAC0: +2
+Damage: 1d10+2 (slashing)
+Speed Factor: 8
+Proficiency Type: Two-handed Sword
+Type: Two-handed
+Requires:
+ 14 Strength
+
+Weight: 10~
 END
  
 // Alternate Portrait
