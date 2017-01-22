@@ -246,7 +246,7 @@ See("C0Paina")
 !StateCheck("Jaheira",CD_STATE_NOTVALID)
 !StateCheck("C0Paina",CD_STATE_NOTVALID)
 Global("C0PainaJaheira1","GLOBAL",0)
-GlobalGT("Chapter","GLOBAL",2)~ THEN BJAHEIR C0PainaJaheira2
+GlobalGT("Chapter","GLOBAL",%bg2_chapter_2%)~ THEN BJAHEIR C0PainaJaheira2
 ~Is it true, Pai'Na? You were acquainted with Bodhi before you met <CHARNAME>?~
 DO ~SetGlobal("C0PainaJaheira1","GLOBAL",1)~
 == BC0PAINA ~Maybe. You wouldn't me wrong to say we were next-door neighbors, so to speak. Don't ask me what I know of her, though. I know nothing.~

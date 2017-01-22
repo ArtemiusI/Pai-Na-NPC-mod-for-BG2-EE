@@ -207,6 +207,9 @@ Original Portrait: http://lorrain.deviantart.com/art/Feriel-94342211
 Change Log
 -----------------------
 
+v1.2
+- Added EET-compatibility
+
 v1.1
 - Spider's Bane (Unfinished Business) can now be reforged by Cromwell
 - Spider's Bane's description edited to be more suitable

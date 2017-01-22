@@ -80,8 +80,8 @@ END
 IF ~~ b1.8
 SAY ~(sigh) You are persistent, and annoying. But I cannot deny there is some truth to your words...~
 = ~Very well. If you do not fear the presence of a half-drow and her spiders, I will join you. Perhaps this may assist me with helping my charges... and I admit, I am tired of isolation.~
-+ ~GlobalLT("Chapter","GLOBAL",4)~ + ~I should tell you first, perhaps, that I seek to rescue an old friend who is being held hostage by the Cowled Wizards. There may be significant risk.~ + b1.9
-+ ~GlobalLT("Chapter","GLOBAL",4)~ + ~You should know that I am hunting a powerful wizard by the name of Irenicus. There will be considerable danger involved.~ + b1.9
++ ~GlobalLT("Chapter","GLOBAL",%bg2_chapter_4%)~ + ~I should tell you first, perhaps, that I seek to rescue an old friend who is being held hostage by the Cowled Wizards. There may be significant risk.~ + b1.9
++ ~GlobalLT("Chapter","GLOBAL",%bg2_chapter_4%)~ + ~You should know that I am hunting a powerful wizard by the name of Irenicus. There will be considerable danger involved.~ + b1.9
 ++ ~Let's go, then.~ DO ~JoinParty()~ EXIT
 END
 

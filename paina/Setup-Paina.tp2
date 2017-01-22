@@ -1,6 +1,19 @@
 BACKUP ~Paina/backup~
 AUTHOR ~Artemius_I~
 AUTO_TRA ~Paina/translations/%s~
+ALWAYS
+  ACTION_IF (GAME_IS ~eet~) BEGIN
+    OUTER_SET bg2_chapter = 12
+  END ELSE BEGIN
+    OUTER_SET bg2_chapter = 0
+  END
+  OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
+    OUTER_SET bg2_chapter = bg2_chapter + 1
+    OUTER_SPRINT name_source ~bg2_chapter_%i%~
+    OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+  END
+END
+
 LANGUAGE ~English~
          ~English~
          ~Paina/translations/english/paina.tra~
@@ -13,7 +26,7 @@ COPY ~Paina/audio~ ~override~
 COPY ~Paina/items~ ~override~
 COPY ~Paina/spells~ ~override~
 
-COMPILE	~Paina/Dialogue/BC0Paina.d~ 
+COMPILE EVALUATE_BUFFER ~Paina/Dialogue/BC0Paina.d~ 
 	~Paina/Dialogue/C0Paina.d~ 
 	~Paina/Dialogue/C0PaiEE.d~ 
 	~Paina/Dialogue/C0PainaJ.d~
@@ -427,6 +440,26 @@ Requires:
  14 Strength
 
 Weight: 10~
+END
+
+//Fate Spirit
+ACTION_IF GAME_IS ~eet~ BEGIN
+  INCLUDE ~EET/other/EET_functions.tph~
+  LAF ~EET_NPC_TRANSITION~
+    INT_VAR
+      type = 2
+    STR_VAR
+      dv = "C0Paina"
+      override_SoA = "C0PAINA"
+      override_ToB = "C0PAI25"
+      dialog_ToB = "C0PAI25"
+      //traFile = EVAL "paina/translations/%LANGUAGE%/paina.tra"
+      //string = "@1"
+      string = "Bring me Pai'Na, the half-drow hivemaster."
+      stringPosDV = "Quayle"
+  END
+END ELSE BEGIN
+  COMPILE ~paina/Dialogue/FATESP.d~
 END
  
 // Alternate Portrait
