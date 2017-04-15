@@ -1,0 +1,120 @@
+Unknown resource: DIALOG/40a in DATA/SODOVR.BIF (#31)
+Unknown resource: FEINEN/40a in DATA/SODOVR.BIF (#32)
+Unknown resource: FLOATTXT/40a in DATA/SODOVR.BIF (#35)
+Unknown resource: INCLUDES/409 in DATA/SODOVR.BIF (#48)
+Unknown resource: L_EN_US/409 in DATA/SODOVR.BIF (#49)
+Unknown resource: MEIRYO/40a in DATA/SODOVR.BIF (#50)
+Unknown resource: MODESTOM/40a in DATA/SODOVR.BIF (#77)
+Unknown resource: NANUM/40a in DATA/SODOVR.BIF (#80)
+Unknown resource: NORMAL/40a in DATA/SODOVR.BIF (#81)
+Unknown resource: PERMIAN/40a in DATA/SODOVR.BIF (#85)
+Unknown resource: POSTANTI/40a in DATA/SODOVR.BIF (#86)
+Unknown resource: PTSERIF/40a in DATA/SODOVR.BIF (#87)
+Unknown resource: REALMS/40a in DATA/SODOVR.BIF (#92)
+Unknown resource: SHERWOOD/40a in DATA/SODOVR.BIF (#98)
+Unknown resource: SIMSUN/40a in DATA/SODOVR.BIF (#99)
+Unknown resource: STATES2/40a in DATA/SODOVR.BIF (#139)
+Unknown resource: STONEBIG/40a in DATA/SODOVR.BIF (#140)
+Unknown resource: STONESML/40a in DATA/SODOVR.BIF (#141)
+Unknown resource: SUBTITLE/40a in DATA/SODOVR.BIF (#144)
+Unknown resource: TOOLFONT/40a in DATA/SODOVR.BIF (#145)
+Unknown resource: TOOLTIP/40a in DATA/SODOVR.BIF (#146)
+Unknown resource: BGEE/409 in DATA/SODUI.BIF (#190)
+Unknown resource: UI/408 in DATA/SODUI.BIF (#1371)
+Unknown resource: UTIL/409 in DATA/SODUI.BIF (#1373)
+Unknown resource: L_CS_CZ/409 in DATA/PATCH20.BIF (#23)
+Unknown resource: L_DE_DE/409 in DATA/PATCH20.BIF (#24)
+Unknown resource: L_ES_ES/409 in DATA/PATCH20.BIF (#25)
+Unknown resource: L_FR_FR/409 in DATA/PATCH20.BIF (#26)
+Unknown resource: L_IT_IT/409 in DATA/PATCH20.BIF (#27)
+Unknown resource: L_JA_JP/409 in DATA/PATCH20.BIF (#28)
+Unknown resource: L_KO_KR/409 in DATA/PATCH20.BIF (#29)
+Unknown resource: L_PL_PL/409 in DATA/PATCH20.BIF (#30)
+Unknown resource: L_PT_BR/409 in DATA/PATCH20.BIF (#31)
+Unknown resource: L_RU_RU/409 in DATA/PATCH20.BIF (#32)
+Unknown resource: L_TR_TR/409 in DATA/PATCH20.BIF (#33)
+Unknown resource: L_UK_UA/409 in DATA/PATCH20.BIF (#34)
+Unknown resource: L_ZH_CN/409 in DATA/PATCH20.BIF (#35)
+Found 627 table(s) in chitin.key.
+Found 0 music(s) in chitin.key.
+Found 596 area(s) in chitin.key.
+Found 17920 animation(s) in chitin.key.
+Found 2264 script(s) in chitin.key.
+Found 0 biography(s) in chitin.key.
+Found 2626 bitmap(s) in chitin.key.
+Found 19 character(s) in chitin.key.
+Found 35 user interface(s) in chitin.key.
+Found 3763 creature(s) in chitin.key.
+Found 1834 dialog(s) in chitin.key.
+Found 640 external effect(s) in chitin.key.
+Found 1 game(s) in chitin.key.
+Found 69 identifiers(s) in chitin.key.
+Found 470 parameters(s) in chitin.key.
+Found 2129 item(s) in chitin.key.
+Found 736 tiled image(s) in chitin.key.
+Found 0 musiclist(s) in chitin.key.
+Found 0 movie(s) in chitin.key.
+Found 196 paperdoll(s) in chitin.key.
+Found 243 projectile(s) in chitin.key.
+Found 1435 spell(s) in chitin.key.
+Found 0 string resource(s) in chitin.key.
+Found 167 store(s) in chitin.key.
+Found 510 tileset(s) in chitin.key.
+Found 1 visual effect(s) in chitin.key.
+Found 255 videocell(s) in chitin.key.
+Found 14286 sound(s) in chitin.key.
+Found 442 wedfile(s) in chitin.key.
+Found 0 wave effect(s) in chitin.key.
+Found 4 worldmap(s) in chitin.key.
+Found 12 font(s) in chitin.key.
+Found 2 SQL script(s) in chitin.key.
+Found 1 GUI script(s) in chitin.key.
+Found 65 movie(s) in chitin.key.
+Found 3834 tile surface(s) in chitin.key.
+Found 31 shader script(s) in chitin.key.
+Found 105 table(s) not listed in chitin.key
+Found 13 area(s) not listed in chitin.key
+Found 876 animation(s) not listed in chitin.key
+Found 532 script(s) not listed in chitin.key
+Found 998 bitmap(s) not listed in chitin.key
+Found 487 creature(s) not listed in chitin.key
+Found 250 dialog(s) not listed in chitin.key
+Found 257 external effect(s) not listed in chitin.key
+Found 2 identifiers(s) not listed in chitin.key
+Found 6 parameters(s) not listed in chitin.key
+Found 555 item(s) not listed in chitin.key
+Found 13 tiled image(s) not listed in chitin.key
+Found 1 musiclist(s) not listed in chitin.key
+Found 49 projectile(s) not listed in chitin.key
+Found 1041 spell(s) not listed in chitin.key
+Found 13 store(s) not listed in chitin.key
+Found 6 tileset(s) not listed in chitin.key
+Found 145 videocell(s) not listed in chitin.key
+Found 313 sound(s) not listed in chitin.key
+Found 12 wedfile(s) not listed in chitin.key
+Found 4 movie(s) not listed in chitin.key
+Found 43 tile surface(s) not listed in chitin.key
+Generating music list...
+BLANK
+Missing music (A) in musiclist.
+L#1VERMU
+Missing music (A) in musiclist.
+V#1WHBL
+Missing music (A) in musiclist.
+Found 737 musics listed in musiclists.
+Generating music list...
+BLANK
+Missing music (A) in musiclist.
+L#1VERMU
+Missing music (A) in musiclist.
+V#1WHBL
+Missing music (A) in musiclist.
+Found 0 musics listed in musiclists.
+Generating music list...
+BLANK
+Missing music (A) in musiclist.
+L#1VERMU
+Missing music (A) in musiclist.
+V#1WHBL
+Missing music (A) in musiclist.
+Found 0 musics listed in musiclists.
