@@ -1,0 +1,18 @@
+IF
+	InParty("C0PAINA")  // Viconia
+	Global("C0PainaJoinedParty","GLOBAL",0)
+THEN
+	RESPONSE #100
+		ReputationInc(-1)
+		SetGlobal("C0PainaJoinedParty","GLOBAL",1)
+END
+
+IF
+	!InParty("C0PAINA")  // Viconia
+	!Dead("C0PAINA")  // Viconia
+	Global("C0PainaJoinedParty","GLOBAL",1)
+THEN
+	RESPONSE #100
+		ReputationInc(1)
+		SetGlobal("C0PainaJoinedParty","GLOBAL",0)
+END

@@ -25,22 +25,19 @@ COPY ~Paina/animations~ ~override~
 COPY ~Paina/audio~ ~override~
 COPY ~Paina/items~ ~override~
 COPY ~Paina/spells~ ~override~
-
-COMPILE EVALUATE_BUFFER ~Paina/Dialogue/BC0Paina.d~ 
-	~Paina/Dialogue/C0Paina.d~ 
-	~Paina/Dialogue/C0PaiEE.d~ 
-	~Paina/Dialogue/C0PainaJ.d~
-	~Paina/Dialogue/C0PainaP.d~
-	~Paina/Dialogue/BC0Pai25.d~ 
-	~Paina/Dialogue/C0Pai25.d~ 
-	~Paina/Dialogue/C0Pai25J.d~
-	~Paina/Dialogue/C0Pai25P.d~
-	~Paina/Dialogue/C0PWitch.d~
-	~Paina/Scripts/C0Paina.baf~
-	~Paina/Scripts/C0Pai25.baf~
-	~Paina/Scripts/C0PWitch.baf~
-	~Paina/Scripts/C0PWitCS.baf~
 	
+ACTION_IF FILE_EXISTS_IN_GAME ~baldur.bcs~ THEN BEGIN
+EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/scripts/rep.baf~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~bdbaldur.bcs~ THEN BEGIN
+EXTEND_TOP ~bdbaldur.bcs~ ~%MOD_FOLDER%/scripts/rep.baf~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~baldur25.bcs~ THEN BEGIN
+EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/scripts/rep.baf~
+END
+
 EXTEND_BOTTOM ~Viconia.bcs~ ~Paina/scripts/c0pvicf.baf~
 EXTEND_TOP ~AR6200.bcs~ ~Paina/Scripts/AR6200.baf~
 EXTEND_TOP ~AR2600.bcs~ ~Paina/Scripts/AR2600.baf~
@@ -91,7 +88,7 @@ ADD_KIT ~C0HIVE~
  ~~
 
  // usability flags, added to the end of the KITLIST.2da entry
- ~0x08000000     11~
+ ~0x20000000     11~
 
  // HLA table to use; see LUABBR.2da
  ~DR0~
@@ -105,15 +102,25 @@ ADD_KIT ~C0HIVE~
   SAY ~HIVEMASTER: The Hivemaster is a druid that focuses on fostering and protecting insects and arachnids, including giant versions thereof. Most commonly stylise themselves after either communal insects, such as ants or bees (hence the name), or predators like spiders, scorpions and dragonflies.
 
 Advantages:
- - Gains immunity to poison.
- - May cast Web and Spider Spawn as 2nd and 4th level priest spells respectively.
- - May use the Poison Weapon ability once per day. Gains another use at levels 7 and 14.
- - 5th level: May shapeshift into a huge spider once per day.
- - 8th level: May shapeshift into a sword spider once per day.
- - 14th level: May shapeshift into a wraith spider once per day.
+– Immunity to all poisons and the following spells: Web, Summon Insects, Insect Plague, Creeping Doom
+– Gains a +4 bonus to Armor Class and saving throws against attacks made by spiders and is ignored by them unless they are provoked.
+– May cast Web and Spider Spawn as 2nd and 4th level priest spells respectively.
+– May use the Poison Weapon ability once per day. Gains another use at levels 7 and 14.
+ 
+POISON WEAPON: Each successful hit within the next 5 rounds will inject poison into the target. Each target can only be affected once per round. The amount of poison damage depends on the character's level:
+
+1st– Target suffers 1 poison damage per second for 6 seconds (Save vs. Death at +1 negates)
+5th– Target suffers 1 poison damage per second for 12 seconds (Save vs. Death negates), and also immediately suffers 2 poison damage (no save)
+9th– Target suffers 1 poison damage per second for 18 seconds (Save vs. Death at -1 negates), and also immediately suffers 4 poison damage (no save)
+13th– Target suffers 1 poison damage per second for 24 seconds (Save vs. Death at -2 negates), and also immediately suffers 6 poison damage (no save)
+ 
+– 5th level: May shapeshift into a huge spider once per day.
+– 8th level: May shapeshift into a sword spider once per day.
+– 14th level: May shapeshift into a wraith spider once per day.
 
 Disadvantages:
- - May not shapeshift into default animal forms.~
+– May not wear heavier armor than leather.
+– May not shapeshift into default animal forms.~
 
 LAF fl#add_kit_ee
   STR_VAR
@@ -165,7 +172,12 @@ Damage: 1d8 piercing, drains one level and one point of strength for 24 seconds 
 Immunity to normal weapons
 Regenerates 1 hit point every 12 seconds~
 
-COPY ~Paina/spells/C0HIVE5.spl~ ~override~
+COPY_EXISTING ~spwi215.spl~ ~override/C0HIVE4.spl~
+WRITE_SHORT 0x1C 2 
+
+COPY_EXISTING ~spwi423.spl~ ~override/C0HIVE5.spl~
+WRITE_SHORT 0x1C 2
+SAY NAME1 ~Spider Spawn~
 SAY UNIDENTIFIED_DESC ~Spider Spawn
 (Conjuration/Summoning)
 
@@ -316,6 +328,21 @@ COPY ~Paina/characters/C0Pai25.cre~ ~override/C0Pai25.cre~
   WRITE_ASCII 0x3c  ~PainaL~ #8
   WRITE_SHORT 0x246 0x4000 + ~C0HIVE~ 
 
+COMPILE EVALUATE_BUFFER ~Paina/Dialogue/BC0Paina.d~ 
+	~Paina/Dialogue/C0Paina.d~ 
+	~Paina/Dialogue/C0PaiEE.d~ 
+	~Paina/Dialogue/C0PainaJ.d~
+	~Paina/Dialogue/C0PainaP.d~
+	~Paina/Dialogue/BC0Pai25.d~ 
+	~Paina/Dialogue/C0Pai25.d~ 
+	~Paina/Dialogue/C0Pai25J.d~
+	~Paina/Dialogue/C0Pai25P.d~
+	~Paina/Dialogue/C0PWitch.d~
+	~Paina/Scripts/C0Paina.baf~
+	~Paina/Scripts/C0Pai25.baf~
+	~Paina/Scripts/C0PWitch.baf~
+	~Paina/Scripts/C0PWitCS.baf~
+	
 APPEND ~pdialog.2da~
 ~C0Paina        C0PainaP             C0PainaJ            C0PainaD~
 UNLESS ~C0Paina~
@@ -389,7 +416,7 @@ Duration: Permanent
 Weight: 1~
 SAY 0xD6 ~PAI'NA~
 
-OUTER_SET strref = RESOLVE_STR_REF (~Pai'Na snarls furiously and pulls her hand away when you attempt to examine her ring.~)
+OUTER_SET strref = RESOLVE_STR_REF (~Pai'Na snarls furiously and pulls her hand away when you attempt to examine her ring.~ [GAM_47])
 APPEND item_use.2da ~c0pring c0paina %strref% 1~
 
 // Creatures
@@ -429,7 +456,7 @@ How the blade found its way into (and was subsequently broken by) the clumsy han
 STATISTICS:
 
 Equipped abilities:
- - Protects the wielder from any magics that adversely affect movement, such as Hold and Web.
+– Protects the wielder from any magics that adversely affect movement, such as Hold and Web.
 
 THAC0: +2
 Damage: 1d10+2 (slashing)

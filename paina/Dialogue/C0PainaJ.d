@@ -48,7 +48,7 @@ Name("C0PaiNa",LastTalkedToBy)~ THEN SALVANAS C0PaiNaSalvanas
 == C0PainaJ ~Oh, yes. Take this beauty for instance. Isn't she lovely? But what is best is her bite. Incurable, lethal, and afflicts burning agony on the victim before they die.~
 == C0PainaJ ~Would you like to have a closer look?~
 == SALVANAS ~Aiiee!~
-DO ~ReallyForceSpell(Myself,WIZARD_IMPROVED_HASTE)
+DO ~ApplySpellRES("runrun",Myself)
 EscapeArea()~
 EXIT
 
@@ -138,9 +138,59 @@ END
 
 // Faldorn
 
-I_C_T CEFALDOR 2 C0PaiNaCEFALDOR2
-== C0PainaJ IF ~InParty("C0PaiNa") InMyArea("C0PaiNa") !StateCheck("C0PaiNa",CD_STATE_NOTVALID)~ THEN ~I would fight this arrogant wench, if only to spit upon her supposed invincibility. But it is your call, <CHARNAME>.~
+REPLACE_TRIGGER_TEXT CEFALDOR
+~!Name("Cernd",Player2)~
+~!Name("Cernd",Player2)
+!Name("C0Paina",Player2)~
+
+REPLACE_TRIGGER_TEXT CEFALDOR
+~!Name("Cernd",Player3)~
+~!Name("Cernd",Player3)
+!Name("C0Paina",Player3)~
+
+REPLACE_TRIGGER_TEXT CEFALDOR
+~!Name("Cernd",Player4)~
+~!Name("Cernd",Player4)
+!Name("C0Paina",Player4)~
+
+REPLACE_TRIGGER_TEXT CEFALDOR
+~!Name("Cernd",Player5)~
+~!Name("Cernd",Player5)
+!Name("C0Paina",Player5)~
+
+REPLACE_TRIGGER_TEXT CEFALDOR
+~!Name("Cernd",Player6)~
+~!Name("Cernd",Player6)
+!Name("C0Paina",Player6)~
+
+EXTEND_TOP CEFALDOR 2
++ ~OR(2)
+!Class(Player1,DRUID_ALL)
+Class(Player1,SHAMAN)
+InParty("C0Paina")
+!Dead("C0Paina")
+!StateCheck("C0Paina",CD_STATE_NOTVALID)~ + ~The rituals of ascension still govern this place! As a druid, Pai'Na will challenge you for leadership!~ EXTERN C0PAINAJ PAINA-FALDORN-FIGHT
 END
+
+CHAIN C0PAINAJ PAINA-FALDORN-FIGHT
+~I care little for any formal rites, but if you have chosen to leech off the energies of the land, then you shall pay the price! I spit upon your supposed invincibility, and I will see that your corpse becomes carrion for my children!~
+== CEFALDOR ~You are mistaken, of course. I revel in the combat of the rituals, and I welcome the chance to end your miserable existence. Come to your death!~ [CEFALD12]
+END
+IF ~Name("C0Paina",Player2)~ DO ~ClearAllActions()
+StartCutSceneMode()
+StartCutSceneEx("Cut35d",FALSE)~ EXIT
+IF ~Name("C0Paina",Player3)~ DO ~ClearAllActions()
+StartCutSceneMode()
+StartCutSceneEx("Cut35e",FALSE)~ EXIT
+IF ~Name("C0Paina",Player4)~ DO ~ClearAllActions()
+StartCutSceneMode()
+StartCutSceneEx("Cut35f",FALSE)~ EXIT
+IF ~Name("C0Paina",Player5)~ DO ~ClearAllActions()
+StartCutSceneMode()
+StartCutSceneEx("Cut35g",FALSE)~ EXIT
+IF ~Name("C0Paina",Player6)~ DO ~ClearAllActions()
+StartCutSceneMode()
+StartCutSceneEx("Cut35h",FALSE)~ EXIT
 
 I_C_T CEFALD04 3 C0PaiNaCEFALD043
 == C0PainaJ IF ~InParty("C0PaiNa") InMyArea("C0PaiNa") !StateCheck("C0PaiNa",CD_STATE_NOTVALID)~ THEN ~You FOOL! You would poison all that resides in this grove? You shall pay for such insolence!~
@@ -743,6 +793,73 @@ IF ~~ p7
 SAY ~I suppose there is nothing to do but to remain with you for now. You would be helpless without my power, after all.~
 = ~Nngh... the burning in my veins is subsiding, but still eats away at me. Hurry up and lead, <CHARNAME>. Perhaps experimenting with my newfound power will dull the pain.~
 IF ~~ DO ~AddXPObject("C0PaiNa",50000)~ EXIT
+END
+
+// PID
+
+IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY])~ pid
+ SAY ~Hmm? What do you want, <CHARNAME>?~ [C0BLANK]
+ + ~Class(Player1,DRUID) Kit(Player1,TRUECLASS) Global("C0PainaPCHivemaster","GLOBAL",0)~ + ~I want to learn how to become a hivemaster.~ DO ~SetGlobal("C0PainaPCHiveMaster","GLOBAL",1)~ + hivemaster
+ + ~Class(Player1,DRUID) Kit(Player1,TRUECLASS) Global("C0PainaPCHivemaster","GLOBAL",1)~ + ~Will you teach me the skills of a hivemaster?~ + hivemaster2
+ ++ ~I need nothing at the moment.~ EXIT
+END
+
+IF ~~ hivemaster
+SAY ~What? Don't be absurd. Why should I teach you in the ways of my kind? Are your own skills not sufficient?~
+++ ~I wish to learn another way of druidic life.~ + hivemaster.1
+++ ~You have some exceptional abilities. I would like to learn from you.~ + hivemaster.1
+++ ~I thought we may understand each other better this way.~ + hivemaster.1
+++ ~My reasons for wanting this are my own.~ + hivemaster.1
+END
+
+IF ~~ hivemaster.1
+SAY ~Hmm...~
+IF ~!GlobalGT("C0PaiNaPCTalk","GLOBAL",1)~ + hivemaster.2
+IF ~GlobalGT("C0PaiNaPCTalk","GLOBAL",1) !GlobalGT("C0PaiNaPCTalk","GLOBAL",3)~ + hivemaster.3
+IF ~GlobalGT("C0PaiNaPCTalk","GLOBAL",3) !GlobalGT("C0PaiNaPCTalk","GLOBAL",5)~ + hivemaster.4
+IF ~GlobalGT("C0PaiNaPCTalk","GLOBAL",5)~ + hivemaster.5
+END
+
+IF ~~ hivemaster2
+SAY ~We have talked about this before, <CHARNAME>. Have you expected me to change my mind? We shall see...~
+IF ~!GlobalGT("C0PaiNaPCTalk","GLOBAL",1)~ + hivemaster.2
+IF ~GlobalGT("C0PaiNaPCTalk","GLOBAL",1) !GlobalGT("C0PaiNaPCTalk","GLOBAL",3)~ + hivemaster.3
+IF ~GlobalGT("C0PaiNaPCTalk","GLOBAL",3) !GlobalGT("C0PaiNaPCTalk","GLOBAL",5)~ + hivemaster.4
+IF ~GlobalGT("C0PaiNaPCTalk","GLOBAL",5)~ + hivemaster.5
+END
+
+IF ~~ hivemaster.2
+SAY ~It is insulting that you would even ask. We are barely more than strangers to each other as of right now. ~
+IF ~~ EXIT
+END
+
+IF ~~ hivemaster.3
+SAY ~No. I have neither the desire nor the patience to educate one such as yourself. Perhaps if you begin to impress me, then I shall begin to consider it.~
+IF ~~ EXIT
+END
+
+IF ~~ hivemaster.4
+SAY ~I have begun to consider it. You may be capable, but the gifts of spiderkin are not granted lightly. Ask me again once you have gained my trust.~
+IF ~~ EXIT
+END
+
+IF ~~ hivemaster.5
+SAY ~...~
+= ~Very well. You have proven yourself to be more worthy than most, and have even made efforts in understanding me, and by extension, the way of spiderkin. Perhaps you may even succeed in learning my ways.~
+= ~I must warn you, though, the training is arduous and demands total dedication. You will need to forsake all of your past training in order to master the necessary skills. Is that acceptable?~
+++ ~It is. I am ready to learn.~ + hivemaster.6
+++ ~Give me some more time to consider it.~ + hivemaster.7
+END
+
+IF ~~ hivemaster.6
+SAY ~Fine. Let's not waste any time then.~
+= ~I hope you understand the extent of this favor I am granting you. The path of the hivemaster is one walked by few. Ensure that you do not abuse the gifts granted to you.~
+IF ~~ DO ~ActionOverride(Player1,AddKit(C0HIVE))~ EXIT
+END
+
+IF ~~ hivemaster.7
+SAY ~Hmph. Were you anyone else, you would not have a second chance. Because I tolerate you, however, I will give you the time to make a decision. Return if you are truly willing to learn.~
+IF ~~ EXIT
 END
 END
 
