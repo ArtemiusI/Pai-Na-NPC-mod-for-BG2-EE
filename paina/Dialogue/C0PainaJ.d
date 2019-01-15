@@ -579,7 +579,7 @@ END
 
 IF ~~ ch5.5
 SAY ~If there is anything to look forward to, it's the prospect of setting my spiders on the drow scum we come across. Perhaps they will appreciate the irony before they die.~
-IF ~~ EXIT
+IF ~~ DO ~SetGlobal("C0PaiNaUnderdark","GLOBAL",1)~ EXIT
 END
 
 IF ~Global("C0PaiNaUstNatha","GLOBAL",1)~ ustnatha
