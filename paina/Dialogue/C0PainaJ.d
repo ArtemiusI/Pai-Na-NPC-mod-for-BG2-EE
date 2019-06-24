@@ -854,7 +854,7 @@ END
 IF ~~ hivemaster.6
 SAY ~Fine. Let's not waste any time then.~
 = ~I hope you understand the extent of this favor I am granting you. The path of the hivemaster is one walked by few. Ensure that you do not abuse the gifts granted to you.~
-IF ~~ DO ~ActionOverride(Player1,AddKit(C0HIVE))~ EXIT
+IF ~~ DO ~ActionOverride(Player1,AddKit(C0HIVE2))~ EXIT
 END
 
 IF ~~ hivemaster.7

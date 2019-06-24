@@ -1,6 +1,6 @@
 BACKUP ~Paina/backup~
 AUTHOR ~Artemius_I~
-AUTO_TRA ~Paina/translations/%s~
+AUTO_TRA ~%MOD_FOLDER%/translations/%s~
 ALWAYS
   ACTION_IF (GAME_IS ~eet~) BEGIN
     OUTER_SET bg2_chapter = 12
@@ -16,15 +16,15 @@ END
 
 LANGUAGE ~English~
          ~English~
-         ~Paina/translations/english/paina.tra~
+         ~%MOD_FOLDER%/translations/english/paina.tra~
 
 BEGIN ~Pai'Na NPC for BG:EE~
 
-COPY ~Paina/2da~ ~override~
-COPY ~Paina/animations~ ~override~
-COPY ~Paina/audio~ ~override~
-COPY ~Paina/items~ ~override~
-COPY ~Paina/spells~ ~override~
+COPY ~%MOD_FOLDER%/2da~ ~override~
+COPY ~%MOD_FOLDER%/animations~ ~override~
+COPY ~%MOD_FOLDER%/audio~ ~override~
+COPY ~%MOD_FOLDER%/items~ ~override~
+COPY ~%MOD_FOLDER%/spells~ ~override~
 	
 ACTION_IF FILE_EXISTS_IN_GAME ~baldur.bcs~ THEN BEGIN
 EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/scripts/rep.baf~
@@ -38,16 +38,19 @@ ACTION_IF FILE_EXISTS_IN_GAME ~baldur25.bcs~ THEN BEGIN
 EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/scripts/rep.baf~
 END
 
-EXTEND_BOTTOM ~Viconia.bcs~ ~Paina/scripts/c0pvicf.baf~
-EXTEND_TOP ~AR6200.bcs~ ~Paina/Scripts/AR6200.baf~
-EXTEND_TOP ~AR2600.bcs~ ~Paina/Scripts/AR2600.baf~
-EXTEND_TOP ~spidfgsu.bcs~ ~Paina/Scripts/spidfgsu.baf~
+EXTEND_BOTTOM ~Viconia.bcs~ ~%MOD_FOLDER%/scripts/c0pvicf.baf~
+EXTEND_TOP ~AR6200.bcs~ ~%MOD_FOLDER%/Scripts/AR6200.baf~
+EXTEND_TOP ~AR2600.bcs~ ~%MOD_FOLDER%/Scripts/AR2600.baf~
+EXTEND_TOP ~spidfgsu.bcs~ ~%MOD_FOLDER%/Scripts/spidfgsu.baf~
 
-INCLUDE ~Paina/fl#add_kit_ee.tpa~
-ADD_KIT ~C0HIVE~
+INCLUDE ~%MOD_FOLDER%/fl#add_kit_ee.tpa~
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~c0hivecl.2da~ THEN BEGIN
+PRINT ~Installing Hivemaster Druid Kit for Pai'Na...~
+ADD_KIT ~C0HIVE2~
 
  // appended to CLASWEAP.2da
- ~C0HIVE		1           1           1           1           1           1           1           1~
+ ~C0HIVE2		1           1           1           1           1           1           1           1~
 
  // appended column-wise to WEAPPROF.2da
 //11                                T   S           F   Q             S S
@@ -61,31 +64,31 @@ ADD_KIT ~C0HIVE~
 //3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
 //2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
 //1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
- ~C0HIVE	1 1 0 1 1 0 0 1 0 0 0 0 0 0 1 1 0 1 1 0 0 0 1 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+ ~C0HIVE2	1 1 0 1 1 0 0 1 0 0 0 0 0 0 1 1 0 1 1 0 0 0 1 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
     
  // appended to ABCLASRQ.2da
- ~C0HIVE				0      0	0	0	0	0~
+ ~C0HIVE2				0      0	0	0	12	15~
 
  // appended to ABCLSMOD.2da
- ~C0HIVE				0	0	0	0	0	0~
+ ~C0HIVE2				0	0	0	0	0	0~
 
  // appended to ABDCDSRQ.2da
- ~C0HIVE                		0       17       0       0       17       17~
+ ~C0HIVE2                		0       0       0       0       17       17~
 
  // appended to ABDCSCRQ.2da
- ~C0HIVE                 	0       15       0       0       15		15~
+ ~C0HIVE2                 	0       0       0       0       15		15~
 
  // appended to ALIGNMNT.2da	LG	LN	LE	NG	TN	NE	CG	CN	CE 
- ~C0HIVE                  		0	0	0	0	1	0	0	0	0~
+ ~C0HIVE2                  		0	0	0	0	1	0	0	0	0~
 
  // appended to DUALCLAS.2da
- ~C0HIVE                  	0       0       0       0       0       0~
+ ~C0HIVE2                  	1       0       0       0       0       0~
 
  // path to your CLAB-style 2da file 
- ~Paina/2da/C0HIVECL.2da~
+ ~%MOD_FOLDER%/2da/C0HIVECL.2da~
 
  // PC races and classes allowed to use this kit, from KITTABLE.2da
- ~~
+ ~K_D_H K_D_E K_D_HE K_D_HL K_D_D K_D_G K_D_HO~
 
  // usability flags, added to the end of the KITLIST.2da entry
  ~0x20000000     11~
@@ -124,11 +127,27 @@ Disadvantages:
 
 LAF fl#add_kit_ee
   STR_VAR
-    kit_name = C0HIVE
+    kit_name = C0HIVE2
 	hpclass = ~HPPRS~
 END
 
-COPY ~Paina/spells/C0HIVE1.spl~ ~override~
+ACTION_IF FILE_EXISTS_IN_GAME ~RASPHERE.marker~ BEGIN
+
+	LAF RA_SPHERE_COMPAT STR_VAR kitname = ~C0HIVE2~ clabfile = ~C0HIVECL~ END
+
+COPY_EXISTING ~C0HIVECL.2da~ ~override/C0HIVECL.2da~
+SET_2DA_ENTRY 3 1 50 ~****      ~
+SET_2DA_ENTRY 1 5 50 ~****      ~
+PRETTY_PRINT_2DA
+	
+END
+END
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~c0hivecl.2da~ THEN BEGIN
+PRINT ~Hivemaster Kit already present, skipping kit installation...~
+END
+
+COPY ~%MOD_FOLDER%/spells/C0HIVE1.spl~ ~override~
 SAY NAME1 ~Shapeshift: Huge Spider~
 SAY NAME2 ~Shapeshift: Huge Spider~
 SAY UNIDENTIFIED_DESC ~Shapeshift: Huge Spider
@@ -142,7 +161,7 @@ Base Armor Class: 8
 Number of Attacks: 2
 Damage: 1d4 piercing, 1 poison damage per second for 1 round (save vs. poison at +2), hits as a +1 weapon~
 
-COPY ~Paina/spells/C0HIVE2.spl~ ~override~
+COPY ~%MOD_FOLDER%/spells/C0HIVE2.spl~ ~override~
 SAY NAME1 ~Shapeshift: Sword Spider~
 SAY NAME2 ~Shapeshift: Sword Spider~
 SAY UNIDENTIFIED_DESC ~Shapeshift: Sword Spider
@@ -156,7 +175,7 @@ Base Armor Class: 7
 Number of Attacks: 4
 Damage: 1d6 slashing, hits as a +3 weapon~
 
-COPY ~Paina/spells/C0HIVE3.spl~ ~override~
+COPY ~%MOD_FOLDER%/spells/C0HIVE3.spl~ ~override~
 SAY NAME1 ~Shapeshift: Wraith Spider~
 SAY NAME2 ~Shapeshift: Wraith Spider~
 SAY UNIDENTIFIED_DESC ~Shapeshift: Wraith Spider
@@ -194,21 +213,21 @@ Upon casting this spell, the hivemaster must throw several spider eggs into the 
  12th+: sword spider.
 When the spell is cast, there is a 20% chance that two spiders of the proper type will appear instead of just one. These spiders will remain under the hivemaster's control until they are slain, or until the spell duration expires.~
 
-COPY ~Paina/spells/C0SPIDER.spl~ ~override~
+COPY ~%MOD_FOLDER%/spells/C0SPIDER.spl~ ~override~
 SAY NAME1 ~Spiderling Swarm~
 SAY NAME2 ~Spiderling Swarm~
 
-COPY ~Paina/spells/C0PNAT.spl~ ~override~
+COPY ~%MOD_FOLDER%/spells/C0PNAT.spl~ ~override~
 
 APPEND ~STATE.IDS~ // adds custom IsValidForPartyDialogue state
   ~0x80101FEF CD_STATE_NOTVALID~
   UNLESS ~CD_STATE_NOTVALID~
   
-COPY ~Paina/Portraits/PainaL.bmp~ ~override/PainaL.bmp~
-COPY ~Paina/Portraits/PainaM.bmp~ ~override/PainaM.bmp~
-COPY ~Paina/Portraits/PainaS.bmp~ ~override/PainaS.bmp~
+COPY ~%MOD_FOLDER%/Portraits/PainaL.bmp~ ~override/PainaL.bmp~
+COPY ~%MOD_FOLDER%/Portraits/PainaM.bmp~ ~override/PainaM.bmp~
+COPY ~%MOD_FOLDER%/Portraits/PainaS.bmp~ ~override/PainaS.bmp~
 
-COPY ~Paina/characters/sppain.cre~ ~override/sppain.cre~
+COPY ~%MOD_FOLDER%/characters/sppain.cre~ ~override~
   SAY NAME1 ~Pai'Na~
   SAY NAME2 ~Pai'Na~
   WRITE_ASCII 0x248 ~C0Paina~ #8  //override script
@@ -266,9 +285,9 @@ COPY ~Paina/characters/sppain.cre~ ~override/sppain.cre~
   WRITE_ASCII 0x280 ~C0Paina~  #32
   WRITE_ASCII 0X34  ~PainaM~ #8
   WRITE_ASCII 0x3c  ~PainaL~ #8
-  WRITE_SHORT 0x246 0x4000 + ~C0HIVE~ 
+  WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0HIVE2~))
 	
-COPY ~Paina/characters/C0Pai25.cre~ ~override/C0Pai25.cre~
+COPY ~%MOD_FOLDER%/characters/C0Pai25.cre~ ~override/C0Pai25.cre~
   SAY NAME1 ~Pai'Na~
   SAY NAME2 ~Pai'Na~
   WRITE_ASCII 0x248 ~C0Paina~ #8  //override script
@@ -326,22 +345,22 @@ COPY ~Paina/characters/C0Pai25.cre~ ~override/C0Pai25.cre~
   WRITE_ASCII 0x280 ~C0Paina~  #32
   WRITE_ASCII 0X34  ~PainaM~ #8
   WRITE_ASCII 0x3c  ~PainaL~ #8
-  WRITE_SHORT 0x246 0x4000 + ~C0HIVE~ 
+  WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0HIVE2~))
 
-COMPILE EVALUATE_BUFFER ~Paina/Dialogue/BC0Paina.d~ 
-	~Paina/Dialogue/C0Paina.d~ 
-	~Paina/Dialogue/C0PaiEE.d~ 
-	~Paina/Dialogue/C0PainaJ.d~
-	~Paina/Dialogue/C0PainaP.d~
-	~Paina/Dialogue/BC0Pai25.d~ 
-	~Paina/Dialogue/C0Pai25.d~ 
-	~Paina/Dialogue/C0Pai25J.d~
-	~Paina/Dialogue/C0Pai25P.d~
-	~Paina/Dialogue/C0PWitch.d~
-	~Paina/Scripts/C0Paina.baf~
-	~Paina/Scripts/C0Pai25.baf~
-	~Paina/Scripts/C0PWitch.baf~
-	~Paina/Scripts/C0PWitCS.baf~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/Dialogue/BC0Paina.d~ 
+	~%MOD_FOLDER%/Dialogue/C0Paina.d~ 
+	~%MOD_FOLDER%/Dialogue/C0PaiEE.d~ 
+	~%MOD_FOLDER%/Dialogue/C0PainaJ.d~
+	~%MOD_FOLDER%/Dialogue/C0PainaP.d~
+	~%MOD_FOLDER%/Dialogue/BC0Pai25.d~ 
+	~%MOD_FOLDER%/Dialogue/C0Pai25.d~ 
+	~%MOD_FOLDER%/Dialogue/C0Pai25J.d~
+	~%MOD_FOLDER%/Dialogue/C0Pai25P.d~
+	~%MOD_FOLDER%/Dialogue/C0PWitch.d~
+	~%MOD_FOLDER%/Scripts/C0Paina.baf~
+	~%MOD_FOLDER%/Scripts/C0Pai25.baf~
+	~%MOD_FOLDER%/Scripts/C0PWitch.baf~
+	~%MOD_FOLDER%/Scripts/C0PWitCS.baf~
 	
 APPEND ~pdialog.2da~
 ~C0Paina        C0PainaP             C0PainaJ            C0PainaD~
@@ -363,16 +382,16 @@ APPEND ~interdia.2da~
 UNLESS ~C0Paina~
 IF ~25FILE~
 
-COPY ~Paina/Epilogue/C0Paizz.2da~ ~override/C0Pai01.2da~
+COPY ~%MOD_FOLDER%/Epilogue/C0Paizz.2da~ ~override/C0Pai01.2da~
 REPLACE ~99999~ ~After completing her journey with <CHARNAME>, Pai'Na returned to her sanctuary in Athkatla and discovered, to her horror, its destruction by the vermin extermination crew of Athkatla. Enraged by the sight of her former home burned down, the half-drow swore revenge against the civilized folk of the city, and soon rumors of many underground workers disappearing in the depths of the sewers spread throughout the city. Though the government initially dismissed such tales, the increasing dangers of the sewers and tombs forced them into action. Soldiers were sent down to the sewers of Athkatla only to discover that the entire underground system was taken over by spiders, webs and cocoons entangling the pipes and walls wherever they looked. As they cut through the webs in their way, a swarm of massive black spiders emerged from the darkness, and it is said that all of Athkatla heard the anguished screams from below. For many years to come, the underground of Athkatla became an uninhabitable home for arachnids where any man who trespassed never returned.~
 
-COPY ~Paina/Epilogue/C0Paizz.2da~ ~override/C0Pai02.2da~
+COPY ~%MOD_FOLDER%/Epilogue/C0Paizz.2da~ ~override/C0Pai02.2da~
 REPLACE ~99999~ ~After completing her journey with <CHARNAME>, Pai'Na returned to her sanctuary in Athkatla and discovered, to her horror, its destruction by the vermin extermination crew of Athkatla. Though enraged by the sight of her former home burned down, she chose to rebuild rather than seek revenge, using her great power to create a far better shelter for her spiders that would protect them from danger before leaving Athkatla entirely. She returned to her former home in the Forest of Tethir, and although the forest witch that fostered her was long gone, she built a home for herself and her arachnid family within a magical glade. Her experiences with <CHARNAME> had given her greater wisdom, and she chose to become a guardian of not only her own charges, but all creatures that called the forest home. Pai'Na eventually discovered during her research into hivemaster rituals that the potion she had drunk to gain greater power had shortened her lifespan greatly as a consequence despite her success, but she accepted her impending death without fear, finding peace with the knowledge that she would have a few more years to live in peace. She spent the remaining years of her life in quiet contemplation.~
 
-COPY ~Paina/Epilogue/C0Paizz.2da~ ~override/C0Pai03.2da~
+COPY ~%MOD_FOLDER%/Epilogue/C0Paizz.2da~ ~override/C0Pai03.2da~
 REPLACE ~99999~ ~After completing her journey with <CHARNAME>, Pai'Na returned to her sanctuary in Athkatla and discovered, to her horror, its destruction by the vermin extermination crew of Athkatla. Though enraged by the sight of her former home burned down, she chose to rebuild rather than seek revenge, using her great power to create a far better shelter for her spiders that would protect them from danger before leaving Athkatla entirely. She returned to her former home in the Forest of Tethir, and although the forest witch that fostered her was long gone, she built a home for herself and her arachnid family within a magical glade. Her experiences with <CHARNAME> had given her greater wisdom, and she chose to become a guardian of not only her own charges, but all creatures that called the forest home. Pai'Na eventually discovered during her research into hivemaster rituals that the potion which killed her foster mother would have shortened her lifespan greatly even had she succeeded, giving her a moment of pause as she realized that <CHARNAME> had saved her from an early death. She chose to make the best of the many years that were ahead of her, creating a sanctuary where her wild friends could live in safety and harmony.~
 
-COPY ~Paina/items/c0pring.itm~ ~override/c0pring.itm~
+COPY ~%MOD_FOLDER%/items/c0pring.itm~ ~override/c0pring.itm~
 SAY NAME1 ~Widow's Kiss~
 SAY NAME2 ~Widow's Kiss~
 SAY DESC ~This obsidian ring is quite large and embedded with a large spider-shaped gemstone. It is Pai'Na's most (and only) treasured possession and she refuses to even remove it.
@@ -386,7 +405,7 @@ Equipped abilities:
 - Can memorize one extra divine spell of each level~
 SAY 0x226 ~PAI'NA~
 
-COPY ~Paina/items/c0pkitt.itm~ ~override/c0pkitt.itm~
+COPY ~%MOD_FOLDER%/items/c0pkitt.itm~ ~override/c0pkitt.itm~
 SAY NAME1 ~Kitthix Figurine~
 SAY NAME2 ~Kitthix Figurine~
 SAY DESC ~This black spider figurine fits in the palm of your hand. When the command word is spoken, the figurine comes to life as a semi-intelligent spider called Kitthix. The huge spider will obey its master's commands for the duration of the spell or until slain. After eight hours, regardless of whether the spider lived or died, the figurine returns. It takes a day to recharge the figurine.
@@ -403,7 +422,7 @@ Charge abilities:
 
 Weight: 0~
 
-COPY ~Paina/items/c0ppotn.itm~ ~override/c0ppotn.itm~
+COPY ~%MOD_FOLDER%/items/c0ppotn.itm~ ~override/c0ppotn.itm~
 SAY NAME1 ~Bebilith Extract~
 SAY NAME2 ~Bebilith Extract~
 SAY DESC ~This murky potion is a deadly mixture composed primarily of the venom of a bebilith, a demonic spider. The magic used in its creation was meant to grant its drinker power... supposing that they survive the process. It was created by the spider witch for Pai'Na's final test, but was taken away from her out of concern for her life. She may attempt to take the test now... though the danger is likely severe, and she will either gain massive power or die an agonizing death.
@@ -443,30 +462,19 @@ COPY_EXISTING ~spidfgsu.cre~ ~override/spidfgsu.cre~
 ACTION_IF FILE_EXISTS_IN_GAME ~u!spbane.itm~ AND FILE_EXISTS_IN_GAME ~bc0paina.dlg~
 THEN BEGIN
   PRINT ~Adding compatibility for Unfinished Business~
-COMPILE ~Paina/dialogue/crossmod/ub.d~
-EXTEND_TOP ~AR0334.bcs~ ~Paina/dialogue/crossmod/ub.baf~
-  COPY_EXISTING ~sppain.cre~ ~override/sppain.cre~
-  WRITE_ASCII 0x2cc ~sppain~ #8   //pre-joining dialogue file
-  
-  COPY_EXISTING ~sw2h06.itm~ ~override~
-  SAY DESC ~This sword was originally forged by the dwarves of the Orothiar tribe in Cloakwood. They created the blade to help foster goodwill between them and the Grand Dukes of Baldur's Gate. Wielded by the Grand Dukes for about a century, the sword was eventually lost, ironically in a fight against ettercaps and spiders.
-  
-How the blade found its way into (and was subsequently broken by) the clumsy hands of Athkatla's sewer cleaners is unknown, but fortunately its pieces were recovered and reforged by the dwarven smith Cromwell. As a tool for both fighting mages and vermin extermination, Spider's Bane will serve its current wielder well.
+COMPILE ~%MOD_FOLDER%/dialogue/crossmod/ub.d~
+END
 
-STATISTICS:
+ACTION_IF FILE_EXISTS_IN_GAME ~BC0SIRE2.dlg~ AND FILE_EXISTS_IN_GAME ~bc0paina.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod between Pai'Na and Sirene~
+COMPILE ~%MOD_FOLDER%/dialogue/crossmod/sirene.d~
+END
 
-Equipped abilities:
-– Protects the wielder from any magics that adversely affect movement, such as Hold and Web.
-
-THAC0: +2
-Damage: 1d10+2 (slashing)
-Speed Factor: 8
-Proficiency Type: Two-handed Sword
-Type: Two-handed
-Requires:
- 14 Strength
-
-Weight: 10~
+ACTION_IF FILE_EXISTS_IN_GAME ~L0WillB.dlg~ AND FILE_EXISTS_IN_GAME ~bc0paina.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod between Pai'Na and Will-o'-the-Wisps~
+COMPILE ~%MOD_FOLDER%/dialogue/crossmod/will.d~
 END
 
 //Fate Spirit
@@ -480,13 +488,13 @@ ACTION_IF GAME_IS ~eet~ BEGIN
       override_SoA = "C0PAINA"
       override_ToB = "C0PAI25"
       dialog_ToB = "C0PAI25"
-      //traFile = EVAL "paina/translations/%LANGUAGE%/paina.tra"
+      //traFile = EVAL "%MOD_FOLDER%/translations/%LANGUAGE%/paina.tra"
       //string = "@1"
       string = "Bring me Pai'Na, the half-drow hivemaster."
       stringPosDV = "Quayle"
   END
 END ELSE BEGIN
-  COMPILE ~paina/Dialogue/FATESP.d~
+  COMPILE ~%MOD_FOLDER%/Dialogue/FATESP.d~
 END
  
 // Alternate Portrait
@@ -494,6 +502,6 @@ END
 BEGIN ~Alternate Portrait~
 REQUIRE_COMPONENT ~Paina.tp2~ ~0~ ~This component requires Paina to be installed~
 
-COPY ~Paina/Portraits/Paina2L.bmp~ ~override/PainaL.bmp~
-COPY ~Paina/Portraits/Paina2M.bmp~ ~override/PainaM.bmp~
-COPY ~Paina/Portraits/Paina2S.bmp~ ~override/PainaS.bmp~
+COPY ~%MOD_FOLDER%/Portraits/Paina2L.bmp~ ~override/PainaL.bmp~
+COPY ~%MOD_FOLDER%/Portraits/Paina2M.bmp~ ~override/PainaM.bmp~
+COPY ~%MOD_FOLDER%/Portraits/Paina2S.bmp~ ~override/PainaS.bmp~
