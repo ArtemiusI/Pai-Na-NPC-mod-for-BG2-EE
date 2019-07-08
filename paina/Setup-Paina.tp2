@@ -1,5 +1,7 @@
 BACKUP ~Paina/backup~
 AUTHOR ~Artemius_I~
+VERSION ~v1.6~
+
 AUTO_TRA ~%MOD_FOLDER%/translations/%s~
 ALWAYS
   ACTION_IF (GAME_IS ~eet~) BEGIN
