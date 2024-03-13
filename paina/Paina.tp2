@@ -1,10 +1,12 @@
 BACKUP ~Paina/backup~
 AUTHOR ~Artemius_I~
+VERSION ~1.8b~
 AUTO_TRA ~%MOD_FOLDER%/translations/%s~
 ALWAYS
-INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
+  INCLUDE ~%MOD_FOLDER%/lib/a7#add_kit_ex.tpa~
   INCLUDE ~%MOD_FOLDER%/lib/alter_script.tpa~
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
+  INCLUDE ~%MOD_FOLDER%/lib/hla_actions.tpa~
   ACTION_IF (GAME_IS ~eet~) BEGIN
     OUTER_SET bg2_chapter = 12
   END ELSE BEGIN
@@ -21,7 +23,7 @@ LANGUAGE ~English~
          ~English~
          ~%MOD_FOLDER%/translations/english/paina.tra~
 
-BEGIN ~Pai'Na NPC for BG:EE~
+BEGIN ~Pai'Na NPC for BG2:EE~
 
 COPY ~%MOD_FOLDER%/audio~ ~override~
 COPY ~%MOD_FOLDER%/items~ ~override~
