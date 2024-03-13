@@ -23,7 +23,7 @@ LANGUAGE ~English~
          ~English~
          ~%MOD_FOLDER%/translations/english/paina.tra~
 
-BEGIN ~Pai'Na NPC for BG:EE~
+BEGIN ~Pai'Na NPC for BG2:EE~
 
 COPY ~%MOD_FOLDER%/audio~ ~override~
 COPY ~%MOD_FOLDER%/items~ ~override~
