@@ -2,7 +2,7 @@ BACKUP ~Paina/backup~
 AUTHOR ~Artemius_I~
 AUTO_TRA ~%MOD_FOLDER%/translations/%s~
 ALWAYS
-INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
+  INCLUDE ~%MOD_FOLDER%/lib/a7#add_kit_ex.tpa~
   INCLUDE ~%MOD_FOLDER%/lib/alter_script.tpa~
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
   ACTION_IF (GAME_IS ~eet~) BEGIN
@@ -21,7 +21,7 @@ LANGUAGE ~English~
          ~English~
          ~%MOD_FOLDER%/translations/english/paina.tra~
 
-BEGIN ~Pai'Na NPC for BG:EE~
+BEGIN ~Pai'Na NPC for BG2:EE~
 
 COPY ~%MOD_FOLDER%/audio~ ~override~
 COPY ~%MOD_FOLDER%/items~ ~override~
@@ -67,7 +67,7 @@ COPY ~%MOD_FOLDER%/characters/sppain.cre~ ~override~
   SAY BIO ~PAI'NA snarls when you ask about her past, telling you that it is none of your business and that it is enough to know that her half-drow heritage has made her an outcast from any form of civilized society. As a hivemaster druid, her duty of tending to the arachnids of the land is foremost, though she has decided to travel with you for now.~
   SAY MORALE ~I refuse to die! My children still need me.~
   SAY HAPPY ~I'm surprised by my lack of disappointment with you.~
-  SAY UNHAPPY_ANNOYED ~How pathetic.~
+  SAY UNHAPPY_ANNOYED ~How pathetic.~ [C]
   SAY UNHAPPY_SERIOUS ~My spiders are increasingly hungry for your blood. I suggest you change your course.~
   SAY UNHAPPY_BREAKING_POINT ~May spiders feast on your innards! I am through with your company.~
   SAY LEADER ~I prefer to act alone, but fine.~
@@ -114,7 +114,7 @@ COPY ~%MOD_FOLDER%/characters/sppain.cre~ ~override~
   WRITE_ASCII 0x280 ~C0Paina~  #32
   WRITE_ASCII 0X34  ~PainaM~ #8
   WRITE_ASCII 0x3c  ~PainaL~ #8
-  WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0HIVE2~))
+  WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0HIVE~))
 	
 COPY ~%MOD_FOLDER%/characters/C0Pai25.cre~ ~override/C0Pai25.cre~
   SAY NAME1 ~Pai'Na~
@@ -174,7 +174,7 @@ COPY ~%MOD_FOLDER%/characters/C0Pai25.cre~ ~override/C0Pai25.cre~
   WRITE_ASCII 0x280 ~C0Paina~  #32
   WRITE_ASCII 0X34  ~PainaM~ #8
   WRITE_ASCII 0x3c  ~PainaL~ #8
-  WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0HIVE2~))
+  WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0HIVE~))
 
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/Dialogue/BC0Paina.d~ 
 	~%MOD_FOLDER%/Dialogue/C0Paina.d~ 
